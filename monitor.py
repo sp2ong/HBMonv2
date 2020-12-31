@@ -502,7 +502,7 @@ def build_stats():
              peers = 'p' + ptemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)
              dashboard_server.broadcast(peers)
            if URL_PATH == "masters":
-             masters = 'c' + ctemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)
+             masters = 'c' + ctemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH,emaster=EMPTY_MASTERS)
              dashboard_server.broadcast(masters)
            if URL_PATH == "opb":
              opb = 'o'+ otemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)
@@ -778,7 +778,7 @@ class dashboard(WebSocketServerProtocol):
         logging.info('WebSocket connection open.')
         self.factory.register(self)
         if URL_PATH == "masters":
-           self.sendMessage(('c' + ctemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
+           self.sendMessage(('c' + ctemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH),emaster=EMPTY_MASTERS).encode('utf-8'))
         if URL_PATH == "peers":
            self.sendMessage(('p' + ptemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
         if URL_PATH == "opb":
