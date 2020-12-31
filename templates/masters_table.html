@@ -13,7 +13,7 @@
     </tr>
 
     {% for _master in _table['MASTERS'] %}    
-    {% if _table['MASTERS'][_master]['PEERS']|length >0 %}
+    {% if ((_table['MASTERS'][_master]['PEERS']|length==0 or _table['MASTERS'][_master]['PEERS']|length>0) and emaster==True) or (_table['MASTERS'][_master]['PEERS']|length>0 and emaster==False) %}
     <tr style="background-color:#f9f9f9f9;">
         <td style="font-weight:bold" rowspan="{{ (_table['MASTERS'][_master]['PEERS']|length * 2) +1 }}"> {{_master}}<br><div style="font: 8pt arial, sans-serif">{{_table['MASTERS'][_master]['REPEAT']}}</div></td>
     </tr>
