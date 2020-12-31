@@ -26,6 +26,9 @@ THEME_COLOR     = 'background-image: linear-gradient(to bottom, #337ab7 0%, #265
 # Blue Gradient 2
 #THEME_COLOR     = 'background-image: linear-gradient(to bottom, #3333cc 0%, #265a88 100%);color:white;'
 
+# Red Gradient
+#THEME_COLOR     = 'background-image:linear-gradient(0deg, rgba(251,0,0,1) 0%, rgba(255,131,131,1) 50%, rgba(255,255,255,1) 100%);color:black;'
+
 # Grey Gradient 
 #THEME_COLOR     = 'background-image: linear-gradient(to bottom, #3b3b3b 10%, #808080 100%);color:white;'
 
