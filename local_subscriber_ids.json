@@ -1,0 +1,25 @@
+{
+  "count": 2, 
+  "results": [
+    {
+      "callsign": "N0CALL", 
+      "city": "", 
+      "country": "", 
+      "fname": " ", 
+      "id": 1234567, 
+      "remarks": "", 
+      "state": "", 
+      "surname": ""
+    },
+       {
+      "callsign": "N0CALL", 
+      "city": "", 
+      "country": "", 
+      "fname": " ", 
+      "id": 0, 
+      "remarks": "", 
+      "state": "", 
+      "surname": ""
+    }
+  ]
+}
