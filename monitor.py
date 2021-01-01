@@ -778,7 +778,7 @@ class dashboard(WebSocketServerProtocol):
         logging.info('WebSocket connection open.')
         self.factory.register(self)
         if URL_PATH == "masters":
-           self.sendMessage(('c' + ctemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH),emaster=EMPTY_MASTERS).encode('utf-8'))
+           self.sendMessage(('c' + ctemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).emaster(EMPTY_MASTERS).encode('utf-8'))
         if URL_PATH == "peers":
            self.sendMessage(('p' + ptemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
         if URL_PATH == "opb":
