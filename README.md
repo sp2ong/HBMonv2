@@ -2,29 +2,11 @@
 
 **HBmonitor is a "web dashboard" for HBlink by N0MJS.**
 
----
-
-**hbmonitor3 by KC1AWV**
-
-Python 3 implementation of N0MJS HBmonitor for HBlink https://github.com/kc1awv/hbmonitor3 
-
----
-
-Copyright (C) 2013-2018  Cortney T. Buffington, N0MJS <n0mjs@me.com>
-
-This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
-
----
-
-***This is version of HBMonitor by SP2ONG 2019-2021***
+***This is version of HBMonitor V2 by SP2ONG 2019-2021***
 
 I recommend not running HBmonitor on the same computer as HBlink3
 
-HBmonitor tested on Debian v9 STRETCH
+HBmonitor tested on Debian v9 and v10
 
 This is version HBMonitor V2 
 
@@ -68,5 +50,23 @@ This is version HBMonitor V2
     In config.py you can choose one of the predefined HBmonitor colors or define your own by entering the code in THEME_COLOR
 
     If not need monitor online rules (I am not recommend) please use in config.py BRIDGES_INC = False
+
+---
+
+**hbmonitor3 by KC1AWV**
+
+Python 3 implementation of N0MJS HBmonitor for HBlink https://github.com/kc1awv/hbmonitor3 
+
+---
+
+Copyright (C) 2013-2018  Cortney T. Buffington, N0MJS <n0mjs@me.com>
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+
+---
 
 
