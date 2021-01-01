@@ -41,9 +41,11 @@ This is version HBMonitor V2
       in config.py and set a proper username and password in:
         WEB_USER = 'hblink'
         WEB_PASS = 'hblink'
-    will provide access to more information about masters / peers / oprnbridge / monitor for users who know access Information.
+    will provide access to more information about masters / peers / oprnbridge / monitor for users 
+    who know access Information.
 
-    The display of buttons configurations are in the templates / buttons.html file. Don't change the code in the first part that checks if you have WEB_AUTH settings in config.py
+    The display of buttons configurations are in the templates / buttons.html file. Don't change 
+    the code in the first part that checks if you have WEB_AUTH settings in config.py
     If you want to add your own buttons put the code below the line
     <! --- Own buttons html code ->
 
