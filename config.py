@@ -4,7 +4,7 @@ CONFIG_INC      = True                           # Include Masters stats
 HOMEBREW_INC    = True                           # Display Homebrew Peers status
 LASTHEARD_INC   = True                           # Display lastheard table on main page
 BRIDGES_INC     = False                          # Display Bridge status and button
-EMPTY_MASTERS   = False                          # Display (True) or not (False) empty master in status
+EMPTY_MASTERS   = False                          # Display Enable (True) or DISABLE (False) empty masters in status
 #
 HBLINK_IP       = '127.0.0.1'                    # HBlink's IP Address
 HBLINK_PORT     = 4321                           # HBlink's TCP reporting socket
