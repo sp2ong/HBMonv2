@@ -4,6 +4,9 @@
 
 ***This is version of HBMonitor V2 by SP2ONG 2019-2021***
 
+The main difference between HBMonitor v1 and v2 is the layout, i.e. the main page shows condensed 
+information and on the subpages, you can see the individual content that was shown on v1
+
 I recommend not running HBmonitor on the same computer as HBlink3
 
 HBmonitor tested on Debian v9 and v10
