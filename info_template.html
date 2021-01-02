@@ -30,7 +30,7 @@
                }
                sock.onclose = function(e) {
                   log("Connection closed (wasClean = " + e.wasClean + ", code = " + e.code + ", reason = '" + e.reason + "')");
-                  main_table.innerHTML = "";
+                  info_table.innerHTML = "";
                   sock = null;
                }
                sock.onmessage = function(e) {
