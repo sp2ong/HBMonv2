@@ -36,6 +36,7 @@ import os
 import csv
 from itertools import islice
 
+from subprocess import check_call, CalledProcessError
 
 # Twisted modules
 from twisted.internet.protocol import ReconnectingClientFactory, Protocol
@@ -662,6 +663,10 @@ def process_message(_bmessage):
                       lh_logfile.write(log_lh_message + '\n')
                       lh_logfile.close()
                       # Lastheard in Dashboard by SP2ONG
+                      try:
+                          check_call("sed -i -e 's|\\x0||g' {}".format(LOG_PATH+"lastheard.log"), shell=True)
+                      except CalledProcessError as err:
+                          print(err)
                       my_list=[]
                       n=0
                       f = open(PATH+"templates/lastheard.html", "w")
