@@ -663,10 +663,6 @@ def process_message(_bmessage):
                       lh_logfile.write(log_lh_message + '\n')
                       lh_logfile.close()
                       # Lastheard in Dashboard by SP2ONG
-                      try:
-                          check_call("sed -i -e 's|\\x0||g' {}".format(LOG_PATH+"lastheard.log"), shell=True)
-                      except CalledProcessError as err:
-                          print(err)
                       my_list=[]
                       n=0
                       f = open(PATH+"templates/lastheard.html", "w")
@@ -942,7 +938,13 @@ if __name__ == '__main__':
 
     logging.info('monitor.py starting up')
     logger.info('\n\n\tCopyright (c) 2016, 2017, 2018, 2019\n\tThe Regents of the K0USY Group. All rights reserved.\n\n\tPython 3 port:\n\t2019 Steve Miller, KC1AWV <smiller@kc1awv.net>\n\n\tHBMonitor v2 SP2ONG 2019-2021\n\n')
-
+    # Check lastheard.log file
+    if os.path.isfile(LOG_PATH+"lastheard.log"):
+      try:
+         check_call("sed -i -e 's|\\x0||g' {}".format(LOG_PATH+"lastheard.log"), shell=True)
+         logging.info('Check lastheard.log file')
+      except CalledProcessError as err:
+         print(err)
     # Download alias files
     result = try_download(PATH, PEER_FILE, PEER_URL, (FILE_RELOAD * 86400))
     logging.info(result)
