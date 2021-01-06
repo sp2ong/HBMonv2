@@ -3,13 +3,19 @@ Monitoring system
 Install package:
 
    sudo apt-get install rrdtool -y
+   
+Change scripts to execute:
 
-Run script 
+  chmod +x /opt/HBMonv2/sysinfo/cpu.sh
+  chmod +x /opt/HBMonv2/sysinfo/grap.sh
+  chmod +x /opt/HBMonv2/sysinfo/rrd-db.sh
+  
+Run script  create database
 
-  /opt/HBMonv2/sysinfo/rrd-db.sh to create database
+  /opt/HBMonv2/sysinfo/rrd-db.sh 
 
-Edit file 
-
+Edit file
+    
   /opt/HBMonv2/sysinfo/graph.sh
 
 Setup temperature depend of your computer 
@@ -63,4 +69,8 @@ in mrtg.cfg
  Unscaled[localhost_2]: d
 
 Tune MaxBytes value for exmample 5000 to set vertical scale graph
+
+Please edit template file where is which graph you are want display /opt/HBMonv2/templates/sysinfo_template.html
+
+
 
