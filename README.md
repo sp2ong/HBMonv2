@@ -48,12 +48,16 @@ This is version HBMonitor V2
     will provide access to more information about masters / peers / oprnbridge / monitor for users 
     who know access Information.
 
-    The display of buttons configurations are in the templates / buttons.html file. Don't change 
+    The display of buttons configurations are in the directory templates/buttons.html file. Don't change 
     the code in the first part that checks if you have WEB_AUTH settings in config.py
     If you want to add your own buttons put the code below the line
     <! --- Own buttons html code ->
-
+    
+    The logo image you can replace file imaage: img/logo.png
+    
     In config.py you can choose one of the predefined HBmonitor colors or define your own by entering the code in THEME_COLOR
+    
+    In direcotry sysinfo/ you can find info how to setup display SYSTEM Info data in HBMonitor. 
 
     If not need monitor online rules (I am not recommend) please use in config.py BRIDGES_INC = False
 
