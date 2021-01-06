@@ -1,0 +1,26 @@
+{% include 'buttons.html' ignore missing %}
+<fieldset style="background-color:#e0e0e0e0;text-algin: lef; margin-left:15px;margin-right:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+<legend><b><font color="#000">&nbsp;.: OpenBridge status :.&nbsp;</font></b></legend>
+    {% if _table['OPENBRIDGES']|length >0 %}
+<table style="table-layout:fixed;width:100%; font: 10pt arial, sans-serif; margin-top:5px; margin-bottom:5px;">
+    <tr style="width:100%; font: 10pt arial, sans-serif;{{ themec }}">
+        <th style='width: 12%'>OpenBridge<br>Systems</th>
+        <th style='width: 12%'>Network ID</th>
+        <th style='width: 70%;'>Active Calls</th>
+    </tr>
+    {% for _openbridge in _table['OPENBRIDGES'] %}
+    <tr style="background-color:#f9f9f9f9;">
+        <td style="font-weight:bold; padding-left: 20px; text-align:left;"> {{ _openbridge}} </td>
+        <td><div style="font: 9pt arial, sans-serif;margin-top:3px;margin-bottom:3px;">Net ID: <span style="font: 9pt arial, sans-serif;font-weight:bold;">{{ _table['OPENBRIDGES'][_openbridge]['NETWORK_ID'] }}</td>
+        <td style="background-color:#f9f9f9f9; font: 9pt arial, sans-serif; font-weight: 600; color:#464646;">{% for entry in _table['OPENBRIDGES'][_openbridge]['STREAMS']  %}[<span style="{{ 'color:#008000;' if _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][0] == 'RX' else 'color:red;' }}">{{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][0] }}</span>: <font color=#0065ff> {{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][1] }}</font> >> <font color=#b5651d> {{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][2] }}</font>]&nbsp;{% endfor %}</td>
+   </tr>
+    {% endfor %}
+</table>
+  {% else %}
+         <table style='width:100%; font: 13pt arial, sans-serif'>
+             <tr style='border:none; background-color:#f9f9f9f9;'>
+             <td style='border:none;height:60px;'><font color=brown><b><center>Waiting for data from the HBLink server ...  or not defined on HBLink</center></b></td>
+             </tr>
+            </table>
+ {% endif %}
+</fieldset>
