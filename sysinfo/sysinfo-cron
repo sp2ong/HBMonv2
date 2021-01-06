@@ -1,0 +1,3 @@
+CRONDARGS=-s -m off
+*/5 * * * * root /opt/HBMonv2/sysinfo/graph.sh
+*/2 * * * * root /opt/HBMonv2/sysinfo/cpu.sh
