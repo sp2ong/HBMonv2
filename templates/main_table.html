@@ -96,12 +96,11 @@
         <span style="font: 9pt arial,sans-serif;color:#FFFFFF">
         &nbsp;&nbsp;&nbsp;<b>DMR ID</b>: <b><font color=yellow>{{ _client }}</b></font><br>
         {% if _cdata['RX_FREQ'] == 'N/A' and _cdata['TX_FREQ'] == 'N/A' %}
-             &nbsp;&nbsp;&nbsp;<b>Connected via: <font color=yellow>IP Network</font></b><br>
+             &nbsp;&nbsp;&nbsp;<b>Type: <font color=yellow>IP Network</font></b><br>
         {% else %} 
-            &nbsp;&nbsp;&nbsp;<b>Connected via: <font color=yellow>Radio</font></b><br>
+            &nbsp;&nbsp;&nbsp;<b>Type: <font color=yellow>Radio</font></b> ({{ _cdata['SLOTS'] }})<br>
         {% endif %}
-         &nbsp;&nbsp;&nbsp;<b>Type</b>: {{ _cdata['SLOTS'] }}
-        <br>&nbsp;&nbsp;&nbsp;<b>Hardware</b>: {{_cdata['PACKAGE_ID'] }}
+        &nbsp;&nbsp;&nbsp;<b>Hardware</b>: {{_cdata['PACKAGE_ID'] }}
         <br>&nbsp;&nbsp;&nbsp;<b>Soft_Ver</b>: {{_cdata['SOFTWARE_ID'] }}
         <br>&nbsp;&nbsp;&nbsp;<b>Location</b>: {{_cdata['LOCATION']}}
         </span></span></span>
