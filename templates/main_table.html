@@ -90,8 +90,8 @@
     {% for _master in _table['MASTERS'] %}    
     {% if _table['MASTERS'][_master]['PEERS']|length >0 %}
     {% for _client, _cdata in _table['MASTERS'][_master]['PEERS'].items() %}
-    <span class="tooltip" style="border-bottom: 10px dotted white;">
-    <a style="border-bottom: 10px dotted white;font: 9.5pt arial,sans-serif;font-weight:bold;color:#0066ff;" target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b>{{_cdata['CALLSIGN']}}</b></a>&nbsp;
+    <span class="tooltip" style="border-bottom: 1px dotted white;">
+    <a style="border-bottom: 1px dotted white;font: 9.5pt arial,sans-serif;font-weight:bold;color:#0066ff;" target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b>{{_cdata['CALLSIGN']}}</b></a>&nbsp;
     <span class="tooltiptext">
         <span style="font: 9pt arial,sans-serif;color:#FFFFFF">
         &nbsp;&nbsp;&nbsp;<b>DMR ID</b>: <b><font color=yellow>{{ _client }}</b></font><br>
