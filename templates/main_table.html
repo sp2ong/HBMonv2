@@ -44,7 +44,7 @@
         {% endif %}
         {% if _pdata[2]['TRX'] == "RX" %}
         <td style="font-weight:bold; padding-left: 20px; text-align:left;color:#464646;">P: {{_peer}} </td>
-        <td style="font: 9.5pt arial, sans-serif;font-weight: 600;color:#0d1a81;">{{ _pdata[2]['SUB']|safe }} [<span style="align-items: center;justify-content:center;font-size: 8pt;font-weight:600;color:brown;"> TS {{ 1 if _pdata[1]['TS'] == True else 2 }}</span>]/td>
+        <td style="font: 9.5pt arial, sans-serif;font-weight: 600;color:#0d1a81;">{{ _pdata[2]['SUB']|safe }} [<span style="align-items: center;justify-content:center;font-size: 8pt;font-weight:600;color:brown;">TS {{ 1 if _pdata[1]['TS'] == True else 2 }}</span>]/td>
         <td style="font: 9.5pt arial, sans-serif;font-weight: 600;color:#b5651d;">{{ _pdata[2]['DEST']|safe }}</td>
         {% endif %}
     </tr>
