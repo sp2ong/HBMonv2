@@ -91,7 +91,7 @@
     {% if _table['MASTERS'][_master]['PEERS']|length >0 %}
     {% for _client, _cdata in _table['MASTERS'][_master]['PEERS'].items() %}
     <span class="tooltip" style="border-bottom: 1px dotted white;">
-    <a style="border-bottom: 1px dotted white;font: 9.5pt arial,sans-serif;font-weight:bold;color:#0066ff;" target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b>{{_cdata['CALLSIGN']}}</b></a>&nbsp;
+    <a style="border-bottom: 1px dotted white;font: 9.5pt arial,sans-serif;font-weight:bold;color:#0066ff;" target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b>{{_cdata['CALLSIGN']}}</b></a>
     <span class="tooltiptext" style="left:105%;top:-10px;">
         <span style="font: 9pt arial,sans-serif;color:#FFFFFF">
         &nbsp;&nbsp;&nbsp;<b>DMR ID</b>: <b><font color=yellow>{{ _client }}</b></font><br>
@@ -104,7 +104,7 @@
         <br>&nbsp;&nbsp;&nbsp;<b>Soft_Ver</b>: {{_cdata['SOFTWARE_ID'] }}
         <br>&nbsp;&nbsp;&nbsp;<b>Info</b>: {{_cdata['LOCATION']}}
          <br>&nbsp;&nbsp;&nbsp;<b>Master</b>: <font color=yellow>{{_master}}</font>
-        </span></span></span>
+        </span></span></span>&nbsp;
     {% endfor %}
     {% endif %}
     {% endfor %}
@@ -115,10 +115,10 @@
 <div style="text-align:left;"><span style="color:#464646;font-weight:600;line-height:1.4;">&nbsp;&nbsp;PEERS:</span></div>
 <div style="text-align:left;font:9.5pt arial, sans-serif;font-weight:bold;margin-left:25px; margin-right:25px;line-height:1.4;white-space:normal;">
     {% for _peer, _pdata  in _table['PEERS'].items() %}
-    <span class="tooltip" style="border-bottom: 1px dotted white;{{'background-color:#98FB98; color:#464646;' if _table['PEERS'][_peer]['STATS']['CONNECTION'] == 'YES' else 'background-color:#ff0000; color:white;'}}"><b>&nbsp;&nbsp;{{_pdata['CALLSIGN']}}&nbsp;&nbsp;</b>&nbsp;
+    <span class="tooltip" style="border-bottom: 1px dotted white;{{'background-color:#98FB98; color:#464646;' if _table['PEERS'][_peer]['STATS']['CONNECTION'] == 'YES' else 'background-color:#ff0000; color:white;'}}"><b>&nbsp;&nbsp;{{_pdata['CALLSIGN']}}&nbsp;&nbsp;</b>
     <span class="tooltiptext" style="top:120%;left:50%;margin-left:-130%;width:160px;">
     <center>&nbsp;&nbsp;<b>Peer</b>: <font color=yellow>{{_peer}}</font>&nbsp;&nbsp;</center>
-    </span></span>
+    </span></span>&nbsp;
  {% endfor %}
 </div>
 {% endif %}
