@@ -9,11 +9,11 @@
     <a href="/masters">&nbsp;Masters&nbsp;</a>
     <a href="/peers">&nbsp;Peers&nbsp;</a>
     <a href="/opb">&nbsp;OpenBridge&nbsp;</a>
-    <a href="/moni">&nbsp;Monitor&nbsp;</a>
-    <a href="/sinfo">&nbsp;System Info&nbsp;</a>
  {% if dbridges == True %}
     <a href="/bridges">&nbsp;Bridges&nbsp;</a>
  {% endif %}
+    <a href="/moni">&nbsp;Monitor&nbsp;</a>
+    <a href="/sinfo">&nbsp;System Info&nbsp;</a>
   </div>
 </div>
 &nbsp;
@@ -23,6 +23,10 @@
 <a href="/peers"><button class="button link">&nbsp;Peers&nbsp;</button></a>
 &nbsp;
 <a href="/opb"><button class="button link">&nbsp;OpenBridge&nbsp;</button></a>
+{% if dbridges == True %}
+&nbsp;
+<a href="/bridges"><button class="button link">&nbsp;Bridges&nbsp;</button></a>
+ {% endif %}
 &nbsp;
 <a href="/moni"><button class="button link">&nbsp;Monitor&nbsp;</button></a>
 &nbsp;

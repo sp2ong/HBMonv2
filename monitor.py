@@ -519,7 +519,7 @@ def build_stats():
         if URL_PATH == "sinfo":
              sinfo = 's'+ stemplate.render(themec=THEME_COLOR,auth=WEB_AUTH)
              dashboard_server.broadcast(sinfo)
-        if BRIDGES and BRIDGES_INC and BTABLE['SETUP']['BRIDGES']:
+        if URL_PATH == "bridges" and BRIDGES and BRIDGES_INC and BTABLE['SETUP']['BRIDGES']:
             bridges = 'b' + btemplate.render(_table=BTABLE,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)
             dashboard_server.broadcast(bridges)
         build_time = now
@@ -791,7 +791,7 @@ class dashboard(WebSocketServerProtocol):
            self.sendMessage(('o' + otemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
         if URL_PATH == "main":
            self.sendMessage(('i' + itemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
-        if URL_PATH == "bridge":
+        if URL_PATH == "bridges":
            self.sendMessage(('b' + btemplate.render(_table=BTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
         if URL_PATH == "moni":
            self.sendMessage(('m' + mtemplate.render(themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
@@ -853,7 +853,7 @@ class web_server(Resource):
     def render_GET(self, request):
         global BRIDGES_INC, URL_PATH
         logging.info('static website requested: %s', request)
-        if WEB_AUTH and (request.uri == b'/masters' or request.uri == b'/peers' or request.uri == b'/opb' or request.uri == b'/moni' or request.uri == b'/bridges' or request.uri == b'/sinfo'):
+        if WEB_AUTH and (request.uri == b'/masters' or request.uri == b'/peers' or request.uri == b'/opb' or request.uri == b'/moni' or request.uri == b'/bridge' or request.uri == b'/sinfo'):
           user = WEB_USER.encode('utf-8')
           password = WEB_PASS.encode('utf-8')
           auth = request.getHeader('Authorization')
@@ -861,8 +861,8 @@ class web_server(Resource):
              decodeddata = base64.b64decode(auth.split(' ')[1])
              if decodeddata.split(b':') == [user, password]:
                  logging.info('Authorization OK')
-                 if request.uri == b'/bridges' and BRIDGES_INC:
-                    URL_PATH = "bridge"
+                 if request.uri == b'/bridges':
+                    URL_PATH = "bridges"
                     BRIDGES_INC = True
                     return (bridges_html).encode('utf-8')
                  elif request.uri == b'/':
@@ -909,8 +909,8 @@ class web_server(Resource):
                 BRIDGES_INC = False
                 URL_PATH = "main"
                 return (main_html).encode('utf-8')
-            elif request.uri == b'/bridges' and BRIDGES_INC:
-                URL_PATH = "bridge"
+            elif request.uri == b'/bridges':
+                URL_PATH = "bridges"
                 BRIDGES_INC = True
                 return (bridges_html).encode('utf-8')
             elif request.uri == b'/masters':
