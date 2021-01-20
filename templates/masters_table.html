@@ -24,14 +24,11 @@
         </b><span style="font: 8pt arial,sans-serif">(Id: {{ _client }})</span><span class="tooltiptext">
         <span style="font: 9pt arial,sans-serif;color:#FFFFFF">
         {% if _cdata['RX_FREQ'] == 'N/A' and _cdata['TX_FREQ'] == 'N/A' %}
-             &nbsp;&nbsp;&nbsp;<b><font color=yellow>IP Network</font></b><br>
+             &nbsp;&nbsp;&nbsp;<b>Type: <font color=yellow>IP Network</font></b><br>
         {% else %} 
-            &nbsp;&nbsp;&nbsp;<b><font color=yellow>Radio</font></b>:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>RX</b>: {{ _cdata['RX_FREQ'] }}<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>TX</b>: {{ _cdata['TX_FREQ'] }}<br>
+            &nbsp;&nbsp;&nbsp;<b>Type: <font color=yellow>Radio</font></b> ({{ _cdata['SLOTS'] }})<br>
         {% endif %}
-         &nbsp;&nbsp;&nbsp;<b>Type/Slot</b>: {{ _cdata['SLOTS'] }}
-        <br>&nbsp;&nbsp;&nbsp;<b>Soft_Ver</b>: {{_cdata['SOFTWARE_ID'] }}
+            &nbsp;&nbsp;&nbsp;<b>Soft_Ver</b>: {{_cdata['SOFTWARE_ID'] }}
         <br>&nbsp;&nbsp;&nbsp;<b>Hardware</b>: {{_cdata['PACKAGE_ID'] }}</span></span></div>
         <br><div style="font: 92% arial,sans-serif; color:#b5651d;font-weight:bold">{{_cdata['LOCATION']}}</div></td>
         <td style="background-color:#e8ffec;font: 10pt arial, sans-serif;" rowspan="2">{{ _cdata['CONNECTED'] }}</td>
