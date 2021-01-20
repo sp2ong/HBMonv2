@@ -853,7 +853,7 @@ class web_server(Resource):
     def render_GET(self, request):
         global BRIDGES_INC, URL_PATH
         logging.info('static website requested: %s', request)
-        if WEB_AUTH and (request.uri == b'/masters' or request.uri == b'/peers' or request.uri == b'/opb' or request.uri == b'/moni' or request.uri == b'/bridge' or request.uri == b'/sinfo'):
+        if WEB_AUTH and (request.uri == b'/masters' or request.uri == b'/peers' or request.uri == b'/opb' or request.uri == b'/moni' or request.uri == b'/bridges' or request.uri == b'/sinfo'):
           user = WEB_USER.encode('utf-8')
           password = WEB_PASS.encode('utf-8')
           auth = request.getHeader('Authorization')
