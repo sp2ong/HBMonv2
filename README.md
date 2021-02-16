@@ -26,6 +26,10 @@ This is version HBMonitor V2
     systemctl status hbmon
     forward TCP ports 8080 and 9000 in firewall
     
+    Plase setup your SYSTEM INFO subpage with follwoing instruction:
+    
+    https://github.com/sp2ong/HBMonv2/tree/main/sysinfo
+    
     If you use openbrige links, in config.py in OPB_FILTER enter NETWORK_ID to do not display
     unnecessary entries in LASTHEARD.
     
