@@ -112,13 +112,11 @@
 {% endif %}
 {% if _table['PEERS']|length >0 %}
 <br>
-<div style="text-align:left;"><span style="color:#464646;font-weight:600;line-height:1.4;">&nbsp;&nbsp;PEERS:</span></div>
+<div style="text-align:left;"><span style="color:#464646;font-weight:600;line-height:1.6;">&nbsp;&nbsp;PEERS:</span></div>
 <div style="text-align:left;font:9.5pt arial, sans-serif;font-weight:bold;margin-left:25px; margin-right:25px;line-height:1.6;white-space:normal;">
     {% for _peer, _pdata  in _table['PEERS'].items() %}
-    <span class="tooltip" style="border-bottom: 1px dotted white;{{'background-color:#98FB98; color:#464646;' if _table['PEERS'][_peer]['STATS']['CONNECTION'] == 'YES' else 'background-color:#ff0000; color:white;'}}"><b>&nbsp;&nbsp;{{_pdata['CALLSIGN']}}&nbsp;&nbsp;</b>
-    <span class="tooltiptext" style="top:120%;left:50%;margin-left:-160%;width:160px;">
-    <center>&nbsp;&nbsp;<b>Peer</b>: <font color=yellow>{{_peer}}</font>&nbsp;&nbsp;</center>
-    </span></span>&nbsp;
+    <span class="tooltip" style="border-bottom: 1px dotted white;{{'background-color:#98FB98; color:#464646;' if _table['PEERS'][_peer]['STATS']['CONNECTION'] == 'YES' else 'background-color:#ff0000; color:white;'}}"><b>&nbsp;&nbsp;{{_peer}}&nbsp;&nbsp;</b>
+    </span>&nbsp;
  {% endfor %}
 </div>
 {% endif %}
