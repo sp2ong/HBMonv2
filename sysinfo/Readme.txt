@@ -59,9 +59,8 @@ change WorkDir to:
 
    WorkDir=/opt/HBMonv2/img/mrtg
 
-put below lines in section your netrwork card and replace localhost_2 to your name network card as result cfgmaker generate
-in mrtg.cfg
-
+Uncomment lines for you network external card setup and put below lines in section your netrwork card 
+and replace localhost_2 to your name network card as result cfgmaker generate in mrtg.cfg
 
  XSize[localhost_2]: 600 
  Title[localhost_2]: Traffic Analysis
