@@ -19,10 +19,15 @@ Edit file
   /opt/HBMonv2/sysinfo/graph.sh
 
 Setup temperature depend of your computer 
-On raspberry pi or PC you can use sensors package tp get temperature CPU
-If not avilable set tempcpu=false
+On raspberry pi or PC you can use sensors package to get temperature CPU
 
-For VPS set tempcpu=false
+If not avilable set:
+
+   tempcpu=false
+
+For VPS set:
+
+   tempcpu=false
 
 
 Optional display network traffic
@@ -51,15 +56,13 @@ Restart snmpd
 
 Create config for mrtg:
 
-  cfgmaker -zero-speed=5000  public@localhos t> /etc/mrtg.cfg
+  cfgmaker -zero-speed=5000  public@localhost > /etc/mrtg.cfg
 
-Please edit /etc/mrtg.cfg and change diretory to store image
-
-change WorkDir to:
+Please edit /etc/mrtg.cfg and change diretory to store image change WorkDir to:
 
    WorkDir:/opt/HBMonv2/img/mrtg
 
-Uncomment lines for you network external card setup and put below lines in section your netrwork card 
+put below lines in section your netrwork card 
 and replace localhost_2 to your name network card as result cfgmaker generate in mrtg.cfg
 
  XSize[localhost_2]: 600 
