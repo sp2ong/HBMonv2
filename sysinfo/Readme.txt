@@ -28,9 +28,9 @@ For VPS set tempcpu=false
 Optional display network traffic
 ===============================
 
-Instal package mrtg and snmp
+Instal package mrtg and snmp 
 
-  sudo apt-get install mrtg snmp -y
+  sudo apt-get install mrtg snmp snmpd -y
 
 Edit file
 
