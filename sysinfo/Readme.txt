@@ -63,7 +63,6 @@ Uncomment lines for you network external card setup and put below lines in secti
 and replace localhost_2 to your name network card as result cfgmaker generate in mrtg.cfg
 
  XSize[localhost_2]: 600 
- Title[localhost_2]: Traffic Analysis
  Options[localhost_2]: growright, bits
  Unscaled[localhost_2]: d
 
