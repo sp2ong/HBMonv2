@@ -18,7 +18,7 @@ tempC=`cat /sys/class/thermal/thermal_zone0/temp |awk '{printf("%.1f",$1)}'`
 fi
 
 # For compuers not like Raspberry PI install package 
-# at install lm-sensors 
+# apt install lm-sensors 
 # and run: sensors-detect
 # after this check result run command: sensors to see temperature CPU, if no set above tempcpu=false
 
