@@ -57,7 +57,7 @@ Please edit /etc/mrtg.cfg and change diretory to store image
 
 change WorkDir to:
 
-   WorkDir=/opt/HBMonv2/img/mrtg
+   WorkDir:/opt/HBMonv2/img/mrtg
 
 Uncomment lines for you network external card setup and put below lines in section your netrwork card 
 and replace localhost_2 to your name network card as result cfgmaker generate in mrtg.cfg
