@@ -51,7 +51,7 @@ Restart snmpd
 
 Create config for mrtg:
 
-  cfgmaker public@localhost > /etc/mrtg.cfg
+  cfgmaker -zero-speed=5000  public@localhos t> /etc/mrtg.cfg
 
 Please edit /etc/mrtg.cfg and change diretory to store image
 
@@ -66,7 +66,7 @@ and replace localhost_2 to your name network card as result cfgmaker generate in
  Options[localhost_2]: growright, bits
  Unscaled[localhost_2]: d
 
-Tune MaxBytes value for exmample 5000 to set vertical scale graph
+Tune MaxBytes value for exmample 50000 to set vertical scale graph
 
 Please edit template file where is which graph you are want display /opt/HBMonv2/templates/sysinfo_template.html
 
