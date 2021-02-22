@@ -26,16 +26,16 @@ This is version HBMonitor V2
     systemctl status hbmon
     forward TCP ports 8080 and 9000 in firewall
     
-    Plase setup your SYSTEM INFO subpage with follwoing instruction:
+    Please setup your SYSTEM INFO subpage with the following instruction:
     
     https://github.com/sp2ong/HBMonv2/tree/main/sysinfo
     
     If you use openbrige links, in config.py in OPB_FILTER enter NETWORK_ID to do not display
     unnecessary entries in LASTHEARD.
     
-    Please remember the table lastherad displays only station transmissions that are longer than 2 seconds.
+    Please remember the table lastheard displays only station transmissions that are longer than 2 seconds.
     
-    If you don't want to have the lasherad list set in config.py :  
+    If you don't want to have the lastheard list set in config.py:  
       LASTHEARD_INC = False
     
     If you want to have more than the last 15 entries in the Lastherad table
@@ -49,7 +49,7 @@ This is version HBMonitor V2
       in config.py and set a proper username and password in:
         WEB_USER = 'hblink'
         WEB_PASS = 'hblink'
-    will provide access to more information about masters / peers / oprnbridge / monitor for users 
+    will provide access to more information about masters / peers / openbridge / monitor for users 
     who know access Information.
 
     The display of buttons configurations are in the directory templates/buttons.html file. Don't change 
@@ -57,13 +57,13 @@ This is version HBMonitor V2
     If you want to add your own buttons put the code below the line
     <! --- Own buttons html code ->
     
-    The logo image you can replace file imaage: img/logo.png
+    The logo image you can replace with file image: img/logo.png
     
     In config.py you can choose one of the predefined HBmonitor colors or define your own by entering the code in THEME_COLOR
     
-    In direcotry sysinfo/ you can find info how to setup display SYSTEM Info data in HBMonitor. 
+    In directory sysinfo/ you can find info on how to setup display SYSTEM Info data in Monitor. 
 
-    If not need monitor online rules (I am not recommend) please use in config.py BRIDGES_INC = False
+    If not need monitor online rules (I do not recommend please use in config.py BRIDGES_INC = False
 
 ---
 
