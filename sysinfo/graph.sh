@@ -4,14 +4,14 @@
 
 # Temperature CPU (not working for VPS)
 
-# Disable = false or enable = true  create graph fortemperature CPU
+# Disable = false or Enable = true  create graph fortemperature CPU
 # set "false" for VPS 
 
 tempcpu=true
 
 # Setup temperature for CPU ============
 
-#For Raspberry PI:
+# For Raspberry PI:
 
 FILE=/sys/class/thermal/thermal_zone0/temp
 if [[ -f "$FILE" ]]; then
