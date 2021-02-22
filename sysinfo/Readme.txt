@@ -56,7 +56,7 @@ Restart snmpd
 
 Create config for mrtg:
 
-  cfgmaker -zero-speed=5000  public@localhost > /etc/mrtg.cfg
+  cfgmaker -zero-speed=10000  public@localhost > /etc/mrtg.cfg
 
 Please edit /etc/mrtg.cfg and change diretory to store image change WorkDir to:
 
