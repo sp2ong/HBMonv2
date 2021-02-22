@@ -4,7 +4,7 @@
 
 # Temperature CPU (not working for VPS)
 
-# Disable = false or Enable = true  create graph fortemperature CPU
+# Disable = false or Enable = true  create graph for temperature CPU
 # set "false" for VPS 
 
 tempcpu=false
