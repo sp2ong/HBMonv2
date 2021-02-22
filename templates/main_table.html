@@ -112,7 +112,7 @@
 {% endif %}
 {% if _table['PEERS']|length >0 %}
 <br>
-<div style="text-align:left;"><span style="color:#464646;font-weight:600;line-height:1.6;">&nbsp;&nbsp;PEERS:</span></div>
+<div style="text-align:left;"><span style="color:#464646;font-weight:600;line-height:1.8;">&nbsp;&nbsp;PEERS:</span></div>
 <div style="text-align:left;font:9.5pt arial, sans-serif;font-weight:bold;margin-left:25px; margin-right:25px;line-height:1.6;white-space:normal;">
     {% for _peer, _pdata  in _table['PEERS'].items() %}
     <span class="tooltip" style="border-bottom: 1px dotted white;{{'background-color:#8ecfb4; color:#464646;' if _table['PEERS'][_peer]['STATS']['CONNECTION'] == 'YES' else 'background-color:#ff0000; color:white;'}}"><b>&nbsp;&nbsp;{{_peer}}&nbsp;&nbsp;</b>
