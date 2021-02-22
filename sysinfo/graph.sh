@@ -95,7 +95,7 @@ DEF:tmin=/opt/HBMonv2/sysinfo/tempC.rrd:temp:MIN \
 fi
 
 # Memory usage 
-/usr/bin/rrdtool graph /opt/HBMonv2/img/mem.png -t "Memory usage 24H - `/bin/date`" \
+/usr/bin/rrdtool graph /opt/HBMonv2/img/mem.png -t "Memory usage 24H - Size: `grep MemTotal /proc/meminfo | awk '{printf "%.0f MB", $2/1024}'`  - `/bin/date`" \
 --rigid --alt-y-grid --alt-autoscale --units-exponent 0 \
 -w 600 -h 70 --upper-limit 100 --vertical-label 'Memory usage [%]' --slope-mode --start -86400 \
 DEF:ave=/opt/HBMonv2/sysinfo/mem.rrd:mem:AVERAGE \
@@ -131,7 +131,7 @@ DEF:tmin=/opt/HBMonv2/sysinfo/mem.rrd:mem:MIN \
 'GPRINT:tmax:MAX:Maximum\: %2.1lf \j' >/dev/null
 
 # Disk usage 
-/usr/bin/rrdtool graph /opt/HBMonv2/img/hdd.png -t "Disk usage 24H - `/bin/date`" \
+/usr/bin/rrdtool graph /opt/HBMonv2/img/hdd.png -t "Disk usage 24H - Size: `df -h / |awk 'NR==2 { print $2 }'` - `/bin/date`" \
 --rigid --alt-y-grid --alt-autoscale --units-exponent 0 \
 -w 600 -h 70 --upper-limit 100 --vertical-label 'Disk usage [%]' --slope-mode --start -86400 \
 DEF:ave=/opt/HBMonv2/sysinfo/hdd.rrd:hdd:AVERAGE \
