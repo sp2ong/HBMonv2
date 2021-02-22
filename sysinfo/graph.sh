@@ -7,7 +7,7 @@
 # Disable = false or Enable = true  create graph fortemperature CPU
 # set "false" for VPS 
 
-tempcpu=true
+tempcpu=false
 
 # Setup temperature for CPU ============
 
