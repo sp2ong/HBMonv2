@@ -1,6 +1,6 @@
 #!/bin/sh
 # Db for temperature CPU
-rrdtool create tempC.rrd \
+rrdtool create /opt/HBMonv2/sysinfo/tempC.rrd \
 --step 300 \
 DS:temp:GAUGE:600:0:100 \
 RRA:AVERAGE:0.5:1:288 \
@@ -13,7 +13,7 @@ RRA:LAST:0.5:1:288 \
 RRA:LAST:0.5:3:672 
 
 # Db for memory usage
-rrdtool create mem.rrd \
+rrdtool create /opt/HBMonv2/sysinfo/mem.rrd \
 --step 300 \
 DS:mem:GAUGE:600:0:100 \
 RRA:AVERAGE:0.5:1:288 \
@@ -26,7 +26,7 @@ RRA:LAST:0.5:1:288 \
 RRA:LAST:0.5:3:672 
 
 # Db for disk usage
-rrdtool create hdd.rrd \
+rrdtool create /opt/HBMonv2/sysinfo/hdd.rrd \
 --step 300 \
 DS:hdd:GAUGE:600:0:100 \
 RRA:AVERAGE:0.5:1:288 \
@@ -39,7 +39,7 @@ RRA:LAST:0.5:1:288 \
 RRA:LAST:0.5:3:672 
 
 # Db for CPU load
-rrdtool create load.rrd -s 60 \
+rrdtool create /opt/HBMonv2/sysinfo/load.rrd -s 60 \
 DS:load1:GAUGE:180:0:U \
 DS:load5:GAUGE:180:0:U \
 DS:load15:GAUGE:180:0:U \
