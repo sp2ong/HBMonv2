@@ -12,7 +12,8 @@ Change scripts to execute:
   
 Run script  create database
 
-  /opt/HBMonv2/sysinfo/rrd-db.sh 
+   cd /opt/HBMonv2/sysinfo
+   ./rrd-db.sh 
 
 Edit file
     
