@@ -36,7 +36,7 @@ THEME_COLOR     = 'background-image: linear-gradient(to bottom, #337ab7 0%, #265
 #THEME_COLOR     = 'background-image:linear-gradient(to bottom right,#d0e98d, #4e6b00);color:black;'
 #
 
-# Put list of NETWORK_ID from OPB links to don't show in lastheard, for example: "260210,260211,260212"
+# Put list of NETWORK_ID from OPB links to don't show in lastheard/monitor duplicat entry, for example: "260210,260211,260212"
 OPB_FILTER = ""
 
 # Authorization of access to dashboard
