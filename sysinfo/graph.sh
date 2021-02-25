@@ -13,7 +13,7 @@ tempcpu=false
 
 # For Raspberry PI set tempcup=true and uncomnet below:
 #FILE=/sys/class/thermal/thermal_zone0/temp
-#if [[ -f "$FILE" ]]; then
+#if [[ -f "$FILE" ]] && $tempcpu == "True" ; then
 #tempC=`cat /sys/class/thermal/thermal_zone0/temp |awk '{printf("%.1f",$1)}'`
 #fi
 
