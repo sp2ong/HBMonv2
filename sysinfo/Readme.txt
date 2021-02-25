@@ -73,6 +73,7 @@ and replace localhost_2 to your name network card as result cfgmaker generate in
 Tune MaxBytes value for exmample 50000 to set vertical scale graph
 
 Please edit template file where is which graph you are want display /opt/HBMonv2/templates/sysinfo_template.html
+and check / verify name of img from mrtg: <img alt="" src="/img/mrtg/localhost_2-day.png" />
 
 
 
