@@ -11,23 +11,25 @@ tempcpu=false
 
 # Setup temperature for CPU ============
 
-# For Raspberry PI:
-
-FILE=/sys/class/thermal/thermal_zone0/temp
-if [[ -f "$FILE" ]]; then
-tempC=`cat /sys/class/thermal/thermal_zone0/temp |awk '{printf("%.1f",$1)}'`
-fi
+# For Raspberry PI set tempcup=true and uncomnet below:
+#FILE=/sys/class/thermal/thermal_zone0/temp
+#if [[ -f "$FILE" ]]; then
+#tempC=`cat /sys/class/thermal/thermal_zone0/temp |awk '{printf("%.1f",$1)}'`
+#fi
 
 
 # For platform not like Raspberry PI install package 
 # apt install lm-sensors 
-# and run: sensors-detect
-# after this check result run command: sensors to see temperature CPU, if no set above tempcpu=false
+# and run command: sensors-detect
+# to setup sensors and
+# next check result run command: sensors 
+# to see temperature CPU, if no set: tempcpu=false
+# if sensors return temperature CPU set: tempcpu=true
 
-# Remove when use for Raspberry PI (see above)
-if $tempcpu == "True" ; then
-tempC=`sensors | grep -i "Core 0" | grep "$1" | sed -re "s/.*:[^+]*?[+]([.0-9]+)[ °]C.*/\1/g"`
-fi
+# For PC where used sensors tools uncomnet below:
+#if $tempcpu == "True" ; then
+#tempC=`sensors | grep -i "Core 0" | grep "$1" | sed -re "s/.*:[^+]*?[+]([.0-9]+)[ °]C.*/\1/g"`
+#fi
 
 #=====================================
 
