@@ -36,7 +36,7 @@ a:active {
   text-align: left;
   border-radius: 6px;
   padding: 8px 0;
-  left: 100%
+  left: 100%;
   opacity: 1;
   /* Position the tooltip */
   position: absolute;
@@ -44,7 +44,7 @@ a:active {
 }
 
 .tooltip:hover .tooltiptext {
-  right: 100%
+  right: 100%;
   opacity: 1;
   visibility: visible;
 }
@@ -90,7 +90,7 @@ a:active {
   background-color: #f1f1f1;
   min-width: 140px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 1000;
 }
 
 /* Links inside the dropdown */
