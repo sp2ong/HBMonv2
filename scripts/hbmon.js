@@ -23,23 +23,18 @@
             } else if ("MozWebSocket" in window) {
                sock = new MozWebSocket(wsuri);
             } else {
-               log("Browser does not support WebSocket!");
+               if (ellog != null) {
+               log("Browser does not support WebSocket!");}
             }
             
             if (sock) {
                sock.onopen = function() {
-                  log("Connected to " + wsuri);
+                  if (ellog != null) {
+                  log("Connected to " + wsuri);}
                }
                sock.onclose = function(e) {
-                  log("Connection closed (wasClean = " + e.wasClean + ", code = " + e.code + ", reason = '" + e.reason + "')");
-                  bridge_table.innerHTML = "";
-                  info_table.innerHTML = "";
-                  main_table.innerHTML = "";
-                  masters_table.innerHTML = "";
-                  moni_table.innerHTML = "";
-                  opb_table.innerHTML = "";
-                  peers_table.innerHTML = "";
-                  sysinfo_table.innerHTML = "";
+                  if (ellog != null) {
+                  log("Connection closed (wasClean = " + e.wasClean + ", code = " + e.code + ", reason = '" + e.reason + "')");}
                   sock = null;
                }
                sock.onmessage = function(e) {
@@ -62,7 +57,8 @@
                    } else if (opcode == "s") {
                        Smsg(message);
                    } else if (opcode == "l") {
-                       log(message);
+                      if (ellog != null) { 
+                       log(message);}
                    } else if (opcode == "q") {
                        log(message);
                        bridge_table.innerHTML = "";
