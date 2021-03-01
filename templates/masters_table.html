@@ -32,13 +32,13 @@
         <br>&nbsp;&nbsp;&nbsp;<b>Hardware</b>: {{_cdata['PACKAGE_ID'] }}</span></span></div>
         <br><div style="font: 92% arial,sans-serif; color:#b5651d;font-weight:bold">{{_cdata['LOCATION']}}</div></td>
         <td style="background-color:#e8ffec;font: 10pt arial, sans-serif;" rowspan="2">{{ _cdata['CONNECTED'] }}</td>
-        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[1]['BGCOLOR'] }}; color:#{{ _cdata[1]['COLOR'] }}"><span style="color:#{{ _cdata[1]['COLOR'] if _cdata[1]['BGCOLOR'] == 'ff6347' else 'b70101'}}">TS1</span></td>
-        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[1]['BGCOLOR'] }}; color:#{{ _cdata[1]['COLOR'] }}">{{ _cdata[1]['SUB']|safe }}</td>
-        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[1]['BGCOLOR'] }}; color:#{{ _cdata[1]['COLOR'] }}">{{ _cdata[1]['DEST']|safe }}</td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[1]['BGCOLOR'] if _cdata[1]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _cdata[1]['COLOR'] if _cdata[1]['COLOR']|length !=0 else '000000' }}"><span style="color:#{{ _cdata[1]['COLOR'] if _cdata[1]['BGCOLOR'] == 'ff6347' else 'b70101'}}">TS1</span></td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[1]['BGCOLOR'] if _cdata[1]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _cdata[1]['COLOR'] if _cdata[1]['COLOR']|length !=0 else '000000' }}">{{ _cdata[1]['SUB']|safe }}</td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[1]['BGCOLOR'] if _cdata[1]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _cdata[1]['COLOR'] if _cdata[1]['COLOR']|length !=0 else '000000' }}">{{ _cdata[1]['DEST']|safe }}</td>
         <tr style="background-color:#f9f9f9f9;">
-        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[2]['BGCOLOR'] }}; color:#{{ _cdata[2]['COLOR'] }}"><span style="color:#{{ _cdata[2]['COLOR'] if _cdata[2]['BGCOLOR'] == 'ff6347' else '3a4aa6'}}">TS2</span></td>
-        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[2]['BGCOLOR'] }}; color:#{{ _cdata[2]['COLOR'] }}">{{ _cdata[2]['SUB']|safe }}</td>
-        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[2]['BGCOLOR'] }}; color:#{{ _cdata[2]['COLOR'] }}">{{ _cdata[2]['DEST']|safe }}</td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[2]['BGCOLOR'] if _cdata[2]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _cdata[2]['COLOR'] if _cdata[2]['COLOR']|length !=0 else '000000' }}"><span style="color:#{{ _cdata[2]['COLOR'] if _cdata[2]['BGCOLOR'] == 'ff6347' else '3a4aa6'}}">TS2</span></td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[2]['BGCOLOR'] if _cdata[2]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _cdata[2]['COLOR'] if _cdata[2]['COLOR']|length !=0 else '000000' }}">{{ _cdata[2]['SUB']|safe }}</td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[2]['BGCOLOR'] if _cdata[2]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _cdata[2]['COLOR'] if _cdata[2]['COLOR']|length !=0 else '000000' }}">{{ _cdata[2]['DEST']|safe }}</td>
         </tr>
 
     </tr>    
