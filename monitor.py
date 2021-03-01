@@ -671,7 +671,7 @@ def process_message(_bmessage):
                       my_list=[]
                       n=0
                       f = open(PATH+"templates/lastheard.html", "w")
-                      f.write("<br><fieldset style=\"border-radius: 8px; background-color:#f0f0f0f0; text-algin: lef; margin-left:15px;margin-right:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;\">\n")
+                      f.write("<br><fieldset style=\"border-radius: 8px; background-color:#f0f0f0f0;margin-left:15px;margin-right:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;\">\n")
                       f.write("<legend><b><font color=\"#000\">&nbsp;.: Lastheard :.&nbsp;</font></b></legend>\n")
                       f.write("<table style=\"width:100%; font: 10pt arial, sans-serif\">\n")
                       f.write("<TR style=\" height: 32px;font: 10pt arial, sans-serif;"+THEME_COLOR+"\"><TH>Date</TH><TH>Time</TH><TH>Callsign (DMR-Id)</TH><TH>Name</TH><TH>TG#</TH><TH>TG Name</TH><TH>TX (s)</TH><TH>Slot</TH><TH>Source ID</TH><TH>System</TH></TR>\n")
