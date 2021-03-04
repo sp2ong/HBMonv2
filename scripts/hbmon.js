@@ -36,6 +36,14 @@
                   if (ellog != null) {
                   log("Connection closed (wasClean = " + e.wasClean + ", code = " + e.code + ", reason = '" + e.reason + "')");}
                   sock = null;
+                  bridge_table.innerHTML = "";
+                  info_table.innerHTML = "";
+                  main_table.innerHTML = "";
+                  masters_table.innerHTML = "";
+                  moni_table.innerHTML = "";
+                  opb_table.innerHTML = "";
+                  peers_table.innerHTML = "";
+                  sysinfo_table.innerHTML = "";
                }
                sock.onmessage = function(e) {
                    var opcode = e.data.slice(0,1);
