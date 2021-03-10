@@ -498,25 +498,18 @@ def build_stats():
     now = time()
     if True: #now > build_time + 1:
         if CONFIG:
-           if URL_PATH == "main":
              main = 'i' + itemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)
              dashboard_server.broadcast(main)
-           if URL_PATH == "peers":
              peers = 'p' + ptemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)
              dashboard_server.broadcast(peers)
-           if URL_PATH == "masters":
              masters = 'c' + ctemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH,emaster=EMPTY_MASTERS)
              dashboard_server.broadcast(masters)
-           if URL_PATH == "opb":
              opb = 'o'+ otemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)
              dashboard_server.broadcast(opb)
-           if URL_PATH == "moni":
              moni = 'm'+ mtemplate.render(themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)
              dashboard_server.broadcast(moni)
-        if URL_PATH == "info":
              info = 't'+ ttemplate.render(themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)
              dashboard_server.broadcast(info)
-        if URL_PATH == "sinfo":
              sinfo = 's'+ stemplate.render(themec=THEME_COLOR,auth=WEB_AUTH)
              dashboard_server.broadcast(sinfo)
         if URL_PATH == "bridges" and BRIDGES and BRIDGES_INC and BTABLE['SETUP']['BRIDGES']:
@@ -783,22 +776,14 @@ class dashboard(WebSocketServerProtocol):
         #      ddbridges = False
         logging.info('WebSocket connection open.')
         self.factory.register(self)
-        if URL_PATH == "masters":
-           self.sendMessage(('c' + ctemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH,emaster=EMPTY_MASTERS)).encode('utf-8'))
-        if URL_PATH == "peers":
-           self.sendMessage(('p' + ptemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
-        if URL_PATH == "opb":
-           self.sendMessage(('o' + otemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
-        if URL_PATH == "main":
-           self.sendMessage(('i' + itemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
-        if URL_PATH == "bridges":
-           self.sendMessage(('b' + btemplate.render(_table=BTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
-        if URL_PATH == "moni":
-           self.sendMessage(('m' + mtemplate.render(themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
-        if URL_PATH == "info":
-           self.sendMessage(('t' + ttemplate.render(themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
-        if URL_PATH == "sinfo":
-           self.sendMessage(('s' + stemplate.render(themec=THEME_COLOR,auth=WEB_AUTH)).encode('utf-8'))
+        self.sendMessage(('c' + ctemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH,emaster=EMPTY_MASTERS)).encode('utf-8'))
+        self.sendMessage(('p' + ptemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
+        self.sendMessage(('o' + otemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
+        self.sendMessage(('i' + itemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
+        self.sendMessage(('b' + btemplate.render(_table=BTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
+        self.sendMessage(('m' + mtemplate.render(themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
+        self.sendMessage(('t' + ttemplate.render(themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
+        self.sendMessage(('s' + stemplate.render(themec=THEME_COLOR,auth=WEB_AUTH)).encode('utf-8'))
         for _message in LOGBUF:
             if _message:
                 _bmessage = ('l' + _message).encode('utf-8')
