@@ -776,11 +776,12 @@ class dashboard(WebSocketServerProtocol):
         #      ddbridges = False
         logging.info('WebSocket connection open.')
         self.factory.register(self)
+        if URL_PATH == "bridges":
+           self.sendMessage(('b' + btemplate.render(_table=BTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
         self.sendMessage(('c' + ctemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH,emaster=EMPTY_MASTERS)).encode('utf-8'))
         self.sendMessage(('p' + ptemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
         self.sendMessage(('o' + otemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
         self.sendMessage(('i' + itemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
-        self.sendMessage(('b' + btemplate.render(_table=BTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
         self.sendMessage(('m' + mtemplate.render(themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
         self.sendMessage(('t' + ttemplate.render(themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
         self.sendMessage(('s' + stemplate.render(themec=THEME_COLOR,auth=WEB_AUTH)).encode('utf-8'))
