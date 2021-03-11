@@ -40,7 +40,7 @@ THEME_COLOR     = 'background-image: linear-gradient(to bottom, #337ab7 0%, #265
 OPB_FILTER = ""
 
 # Authorization of access to dashboard
-WEB_AUTH =  False
+WEB_AUTH =  True
 WEB_USER =  'hblink'
 WEB_PASS =  'hblink'
 
