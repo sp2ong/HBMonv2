@@ -512,7 +512,7 @@ def build_stats():
              dashboard_server.broadcast(info)
              sinfo = 's'+ stemplate.render(themec=THEME_COLOR,auth=WEB_AUTH)
              dashboard_server.broadcast(sinfo)
-        if URL_PATH == "bridges" and BRIDGES and BRIDGES_INC and BTABLE['SETUP']['BRIDGES']:
+        if BRIDGES and BRIDGES_INC and BTABLE['SETUP']['BRIDGES']:
             bridges = 'b' + btemplate.render(_table=BTABLE,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)
             dashboard_server.broadcast(bridges)
         build_time = now
