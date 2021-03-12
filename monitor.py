@@ -776,7 +776,7 @@ class dashboard(WebSocketServerProtocol):
         #      ddbridges = False
         logging.info('WebSocket connection open.')
         self.factory.register(self)
-        if URL_PATH == "bridges":
+        if BRIDGES and BRIDGES_INC and BTABLE['SETUP']['BRIDGES']:
            self.sendMessage(('b' + btemplate.render(_table=BTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
         self.sendMessage(('c' + ctemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH,emaster=EMPTY_MASTERS)).encode('utf-8'))
         self.sendMessage(('p' + ptemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)).encode('utf-8'))
