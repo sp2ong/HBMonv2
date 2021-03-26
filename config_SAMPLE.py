@@ -17,8 +17,11 @@ CLIENT_TIMEOUT  = 0                              # Clients are timed out after t
 # Green 
 #THEME_COLOR     = 'background-color:#4a8f3c;color:white;'
 
-# Blue
+# Blue 1
 #THEME_COLOR     = 'background-color:#2A659A;color:white;'
+
+# Blue 2
+#THEME_COLOR     = 'background-color:#43A6DF;color:white;'
 
 # Blue Gradient 1
 THEME_COLOR     = 'background-image: linear-gradient(to bottom, #337ab7 0%, #265a88 100%);color:white;'
