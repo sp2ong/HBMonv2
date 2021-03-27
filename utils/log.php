@@ -36,7 +36,7 @@ echo "<div style=\"overflow-x:auto;\">\n\n";
 echo "<center><fieldset style=\"background-color:#e0e0e0e0; width:1150px;margin-left:15px;margin-right:15px;margin-top:0px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;\">";
 echo "<table>\n\n";
 // define table row titels
-echo "<TR><TH>&nbsp;&nbsp;Date<TH>&nbsp;Time<TH>&nbsp;Callsign (DMR-Id)<TH>&nbsp;&nbsp;Name<TH>&nbsp;TG#<TH>&nbsp;&nbsp;TG Name<TH>TX (s)&nbsp;<TH>&nbsp;Slot&nbsp;<TH>Source<TH>System</TR>\n\n";
+echo "<TR><TH>&nbsp;&nbsp;Date<TH>&nbsp;Time<TH>&nbsp;Callsign (DMR-Id)<TH>&nbsp;&nbsp;Name<TH>&nbsp;TG#<TH>&nbsp;&nbsp;TG Name<TH>TX (s)&nbsp;<TH>&nbsp;Slot&nbsp;<TH>Source</TR>\n\n";
 
 // define location and name of logfile
 // best practise is write logfile in the directory where this php script is saved because some php installations have problems to read files outside the webserver directories
@@ -86,7 +86,7 @@ $log_time[$i]=substr($log_time[$i],0,19);
 if ($user_id[$i]=="1234567") {$user_call[$i] = "*NoCallsign*"; $user_id[$i]="-";}
 
 // output table
-echo "<TR>".$s.'&nbsp;'.$date_eu[2].".".$date_eu[1].".".$date_eu[0].$s.'&nbsp;'.substr($log_time[$i],11,5).$s.'<font color=#0066ff><b>&nbsp;'.$user_call[$i]."</b></font><font size=\"-1\"> (".$user_id[$i].")</font>".$s.TRIM($user_name[$i]).$s.'<font color=#b5651d><b>'.$tg[$i].'</b></font>'.$s.'<font color=green><b>&nbsp;'.$tgname[$i].'</b></font>'.$s."<center>".round($transmit_timer[$i])."</center>".$s."<center>&nbsp;".$ts[$i]."&nbsp;</center>".$s.$src_name[$i].$s.$system[$i]."</TR>\n";
+echo "<TR>".$s.'&nbsp;'.$date_eu[2].".".$date_eu[1].".".$date_eu[0].$s.'&nbsp;'.substr($log_time[$i],11,5).$s.'<font color=#0066ff><b>&nbsp;'.$user_call[$i]."</b></font><font size=\"-1\"> (".$user_id[$i].")</font>".$s.TRIM($user_name[$i]).$s.'<font color=#b5651d><b>'.$tg[$i].'</b></font>'.$s.'<font color=green><b>&nbsp;'.$tgname[$i].'</b></font>'.$s."<center>".round($transmit_timer[$i])."</center>".$s."<center>&nbsp;".$ts[$i]."&nbsp;</center>".$s.$system[$i]."</TR>\n";
 }
 
 echo "\n</table></fieldset></div></body></html>";
