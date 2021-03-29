@@ -272,12 +272,18 @@ def add_hb_peer(_peer_conf, _ctable_loc, _peer):
        _ctable_peer['CALLSIGN'] = _peer_conf['CALLSIGN'].decode('utf-8').strip()
     else:
        _ctable_peer['CALLSIGN'] = _peer_conf['CALLSIGN']
-
-    _ctable_peer['COLORCODE'] = _peer_conf['COLORCODE'].decode('utf-8')
+    
+    if str(type(_peer_conf['COLORCODE'])).find("bytes") != -1:
+       _ctable_peer['COLORCODE'] = _peer_conf['COLORCODE'].decode('utf-8').strip()
+    else:    
+       _ctable_peer['COLORCODE'] = _peer_conf['COLORCODE']
+    
     _ctable_peer['CONNECTION'] = _peer_conf['CONNECTION']
     _ctable_peer['CONNECTED'] = since(_peer_conf['CONNECTED'])
+    
     _ctable_peer['IP'] = _peer_conf['IP']
     _ctable_peer['PORT'] = _peer_conf['PORT']
+    
     #_ctable_peer['LAST_PING'] = _peer_conf['LAST_PING']
 
     # SLOT 1&2 - for real-time montior: make the structure for later use
