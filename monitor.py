@@ -63,7 +63,8 @@ from time import time
 from jinja2 import Environment, PackageLoader, select_autoescape
 
 # Utilities from K0USY Group sister project
-from dmr_utils3.utils import int_id, get_alias, try_download, mk_full_id_dict, bytes_4
+from dmr_utils3.utils import int_id, try_download, bytes_4
+from json import load as jload
 
 # Configuration variables and constants
 from config import *
@@ -121,6 +122,88 @@ def get_opbf():
 def get_template(_file):
     with open(_file, 'r') as html:
         return html.read()
+
+    
+# LONG VERSION - MAKES A FULL DICTIONARY OF INFORMATION BASED ON TYPE OF ALIAS FILE
+# BASED ON DOWNLOADS FROM RADIOID.NET     
+# moved from dmr_utils3
+def mk_full_id_dict(_path, _file, _type):
+    _dict = {}
+    try:
+        with open(_path+_file, 'r', encoding='latin1') as _handle:
+            records = jload(_handle)
+            if 'count' in [*records]:
+                records.pop('count')
+            records = records[[*records][0]]
+            _handle.close
+            if _type == 'peer':
+                for record in records:
+                    try:
+                        _dict[int(record['id'])] = {
+                            'CALLSIGN': record['callsign'],
+                            'CITY': record['city'],
+                            'STATE': record['state'],
+                            'COUNTRY': record['country'],
+                            'FREQ': record['frequency'],
+                            'CC': record['color_code'],
+                            'OFFSET': record['offset'],
+                            'LINKED': record['ts_linked'],
+                            'TRUSTEE': record['trustee'],
+                            'NETWORK': record['ipsc_network']
+                        }
+                    except:
+                        pass
+            elif _type == 'subscriber':
+                for record in records:
+                    # Try to craete a string name regardless of existing data
+                    if (('surname' in record.keys()) and ('fname'in record.keys())):
+                        _name = str(record['fname'])
+                    elif 'fname' in record.keys():
+                        _name = str(record['fname'])
+                    elif 'surname' in record.keys():
+                        _name = str(record['surname'])
+                    else:
+                        _name = 'NO NAME'
+                    # Make dictionary entry, if any of the information below isn't in the record, it wil be skipped
+                    try:
+                        _dict[int(record['id'])] = {
+                            'CALLSIGN': record['callsign'],
+                            'NAME': _name,
+                            'CITY': record['city'],
+                            'STATE': record['state'],
+                            'COUNTRY': record['country']
+                        }
+                    except:
+                        pass
+            elif _type == 'tgid':
+                for record in records:
+                    try:
+                        _dict[int(record['id'])] = {
+                            'NAME': record['callsign']
+                        }
+                    except:
+                        pass
+        return _dict
+    except IOError:
+        return _dict
+    
+# THESE ARE THE SAME THING FOR LEGACY PURPOSES
+#moved from dmr_urils3
+def get_alias(_id, _dict, *args):
+    if type(_id) == bytes:
+        _id = int_id(_id)
+    if _id in _dict:
+        if args:
+            retValue = []
+            for _item in args:
+                try:
+                    retValue.append(_dict[_id][_item])
+                except TypeError:
+                    return _dict[_id]
+            return retValue
+        else:
+            return _dict[_id]
+    return _id
 
 # Alias string processor
 def alias_string(_id, _dict):
