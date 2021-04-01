@@ -123,7 +123,6 @@ def get_template(_file):
     with open(_file, 'r') as html:
         return html.read()
 
-    
 # LONG VERSION - MAKES A FULL DICTIONARY OF INFORMATION BASED ON TYPE OF ALIAS FILE
 # BASED ON DOWNLOADS FROM RADIOID.NET     
 # moved from dmr_utils3
@@ -186,9 +185,9 @@ def mk_full_id_dict(_path, _file, _type):
         return _dict
     except IOError:
         return _dict
-    
+
 # THESE ARE THE SAME THING FOR LEGACY PURPOSES
-#moved from dmr_urils3
+# moved from dmr_urils3
 def get_alias(_id, _dict, *args):
     if type(_id) == bytes:
         _id = int_id(_id)
