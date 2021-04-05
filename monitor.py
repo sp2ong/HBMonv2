@@ -34,6 +34,7 @@ import datetime
 
 import os
 import csv
+import math
 from itertools import islice
 from subprocess import check_call, CalledProcessError
 
@@ -777,7 +778,7 @@ def process_message(_bmessage):
         for row in islice(reversed(list(csv.reader(textfile))),400):
             duration_in_s = 0
             duration=row[1]
-            dur=str(int(float(duration.strip())))
+            dur=str(int(math.ceil(float(duration.strip()))))
             year=int(float(row[0][:4].strip()))
             month=int(float(row[0][5:7].strip()))
             day=int(float(row[0][8:10].strip()))
@@ -794,7 +795,7 @@ def process_message(_bmessage):
                 if dur=="0":
                     txdur="&#8734;"
                 else:
-                    txdur=str(int(float(duration.strip())))
+                    txdur=str(int(math.ceil(float(duration.strip()))))
                 durtx="<td>"+txdur+"</td>"
             if row[10] not in my_list:
                     if row[11].strip().isdigit() or row[11] == "N0CALL" or row[11] == "NOCALL":
