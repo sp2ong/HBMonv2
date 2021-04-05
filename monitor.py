@@ -775,42 +775,42 @@ def process_message(_bmessage):
     f.write("<table style=\"width:100%; font: 10pt arial, sans-serif\">\n")
     f.write("<TR style=\" height: 32px;font: 10pt arial, sans-serif;"+THEME_COLOR+"\"><TH>Date</TH><TH>Time</TH><TH>Callsign (DMR-Id)</TH><TH>Name</TH><TH>TG#</TH><TH>TG Name</TH><TH>&nbsp;TX (s)&nbsp;</TH><TH>Slot</TH><TH>System</TH></TR>\n")
     with open(LOG_PATH+"lastheard.log", "r") as textfile:
-                          for row in islice(reversed(list(csv.reader(textfile))),400):
-                            duration_in_s = 0
-                            duration=row[1]
-                            dur=str(int(float(duration.strip())))
-                            year=int(float(row[0][:4].strip()))
-                            month=int(float(row[0][5:7].strip()))
-                            day=int(float(row[0][8:10].strip()))
-                            hour=int(float(row[0][11:13].strip()))
-                            min=int(float(row[0][14:16].strip()))
-                            sec=int(float(row[0][17:19].strip()))
-                            then = datetime.datetime(year, month, day, hour, min, sec)
-                            now  = datetime.datetime.now()
-                            durations = now - then
-                            duration_in_s = durations.total_seconds() 
-                            if dur=="0" and row[3]=="START":
-                              durtx='<td style=\"background:#f33; color:white;font-weight:bold;\">TX-ing</td>'
-                            else:
-                              durtx="<td>"+str(int(float(duration.strip())))+"</td>"
-                            if (row[3]=="START" and duration_in_s < 260) or (row[3]=="END"):
-                             if row[10] not in my_list:
-                               if row[11].strip().isdigit() or row[11] == "N0CALL" or row[11] == "NOCALL":
-                                  qrz = "<b><font color=#464646>"+row[11]+"</font></b>"
-                               else:
-                                  qrz = "<a style=\"font: 9pt arial,sans-serif;font-weight:bold;color:#0066ff;\" target=\"_blank\" href=https://qrz.com/db/"+row[11]+">"+row[11]+"</a></b><span style=\"font: 7pt arial,sans-serif\"> ("+row[10]+")</span>"
-                               if len(row) < 13:
-                                   hline="<TR style=\"background-color:#f9f9f9f9;\"><TD>"+row[0][:10]+"</TD><TD>"+row[0][11:16]+"</TD><TD>"+qrz+"</TD><TD><font color=#002d62><b></b></font></TD><TD><font color=#b5651d><b>"+row[8][2:]+"</b></font></TD><TD><font color=green><b>"+row[9]+"</b></font></TD>"+durtx+"<TD>"+row[7][2:]+"</TD><TD>"+row[4]+"</TD></TR>"
-                                   my_list.append(row[10])
-                                   n += 1
-                               else:
-                                   hline="<TR style=\"background-color:#f9f9f9f9;\"><TD>"+row[0][:10]+"</TD><TD>"+row[0][11:16]+"</TD><TD>"+qrz+"</TD><TD><font color=#002d62><b>"+row[12]+"</b></font></TD><TD><font color=#b5651d><b>"+row[8][2:]+"</b></font></TD><TD><font color=green><b>"+row[9]+"</b></font></TD>"+durtx+"<TD>"+row[7][2:]+"</TD><TD>"+row[4]+"</TD></TR>"
-                                   my_list.append(row[10])
-                                   n += 1
-                               f.write(hline+"\n")
-                             # n is max number items in lastheard table
-                             if n == 15:
-                               break
+        for row in islice(reversed(list(csv.reader(textfile))),400):
+            duration_in_s = 0
+            duration=row[1]
+            dur=str(int(float(duration.strip())))
+            year=int(float(row[0][:4].strip()))
+            month=int(float(row[0][5:7].strip()))
+            day=int(float(row[0][8:10].strip()))
+            hour=int(float(row[0][11:13].strip()))
+            min=int(float(row[0][14:16].strip()))
+            sec=int(float(row[0][17:19].strip()))
+            then = datetime.datetime(year, month, day, hour, min, sec)
+            now  = datetime.datetime.now()
+            durations = now - then
+            duration_in_s = durations.total_seconds() 
+            if dur=="0" and row[3]=="START":
+                durtx='<td style=\"background:#f33; color:white;font-weight:bold;\">TX-ing</td>'
+            else:
+                durtx="<td>"+str(int(float(duration.strip())))+"</td>"
+            if (row[3]=="START" and duration_in_s < 260) or (row[3]=="END"):
+                if row[10] not in my_list:
+                    if row[11].strip().isdigit() or row[11] == "N0CALL" or row[11] == "NOCALL":
+                        qrz = "<b><font color=#464646>"+row[11]+"</font></b>"
+                    else:
+                        qrz = "<a style=\"font: 9pt arial,sans-serif;font-weight:bold;color:#0066ff;\" target=\"_blank\" href=https://qrz.com/db/"+row[11]+">"+row[11]+"</a></b><span style=\"font: 7pt arial,sans-serif\"> ("+row[10]+")</span>"
+                    if len(row) < 13:
+                        hline="<TR style=\"background-color:#f9f9f9f9;\"><TD>"+row[0][:10]+"</TD><TD>"+row[0][11:16]+"</TD><TD>"+qrz+"</TD><TD><font color=#002d62><b></b></font></TD><TD><font color=#b5651d><b>"+row[8][2:]+"</b></font></TD><TD><font color=green><b>"+row[9]+"</b></font></TD>"+durtx+"<TD>"+row[7][2:]+"</TD><TD>"+row[4]+"</TD></TR>"
+                        my_list.append(row[10])
+                        n += 1
+                    else:
+                        hline="<TR style=\"background-color:#f9f9f9f9;\"><TD>"+row[0][:10]+"</TD><TD>"+row[0][11:16]+"</TD><TD>"+qrz+"</TD><TD><font color=#002d62><b>"+row[12]+"</b></font></TD><TD><font color=#b5651d><b>"+row[8][2:]+"</b></font></TD><TD><font color=green><b>"+row[9]+"</b></font></TD>"+durtx+"<TD>"+row[7][2:]+"</TD><TD>"+row[4]+"</TD></TR>"
+                        my_list.append(row[10])
+                        n += 1
+                    f.write(hline+"\n")
+                # n max number items in lastheard table
+                if n == 15:
+                    break
     f.write("</table></fieldset><br>")
     f.close()
     # refresh main page
