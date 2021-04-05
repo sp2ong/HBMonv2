@@ -32,12 +32,7 @@ This is version HBMonitor V2
     
     If you use openbrige links, in config.py in OPB_FILTER enter NETWORK_ID to do not display
     unnecessary entries in LASTHEARD.
-    
-    Please remember the table lastheard displays only station transmissions that are longer than 2 seconds.
-    
-    If you don't want to have the lastheard list set in config.py:  
-      LASTHEARD_INC = False
-    
+ 
     If you want to have more than the last 15 entries in the Lastherad table
     change in the monitor.py file line from
       if n == 15:
@@ -46,7 +41,7 @@ This is version HBMonitor V2
 
     I recommend using the following settings:
         WEB_AUTH = True
-      in config.py and set a proper username and password in:
+    in config.py and set a proper username and password in:
         WEB_USER = 'hblink'
         WEB_PASS = 'hblink'
     will provide access to more information about masters / peers / openbridge / monitor for users 
@@ -62,8 +57,6 @@ This is version HBMonitor V2
     In config.py you can choose one of the predefined HBmonitor colors or define your own by entering the code in THEME_COLOR
     
     In directory sysinfo/ you can find info on how to setup display SYSTEM Info data in Monitor. 
-
-    If not need monitor online rules (I do not recommend please use in config.py BRIDGES_INC = False
 
 ---
 
