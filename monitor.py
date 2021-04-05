@@ -107,7 +107,6 @@ YELLOW      = 'fffccd'
 URL_PATH    = 'main'
 
 # Define setup setings
-CTABLE['SETUP']['LASTHEARD'] = LASTHEARD_INC
 BTABLE['SETUP']['BRIDGES'] = BRIDGES_INC
 
 # OPB Filter for lastheard
