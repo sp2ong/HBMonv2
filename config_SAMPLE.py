@@ -2,7 +2,6 @@ REPORT_NAME     = 'Dashboard of local DMR network'           # Name of the monit
 #
 CONFIG_INC      = True                           # Include HBlink stats
 HOMEBREW_INC    = True                           # Display Homebrew Peers status
-LASTHEARD_INC   = True                           # Display lastheard table on main page
 BRIDGES_INC     = False                          # Display Bridge status and button
 EMPTY_MASTERS   = False                          # Display Enable (True) or DISABLE (False) empty masters in status
 #
