@@ -788,12 +788,15 @@ def process_message(_bmessage):
             now  = datetime.datetime.now()
             durations = now - then
             duration_in_s = durations.total_seconds() 
-            if dur=="0" and row[3]=="START":
+            if dur=="0" and row[3]=="START" and duration_in_s < 260:
                 durtx='<td style=\"background:#f33; color:white;font-weight:bold;\">TX-ing</td>'
             else:
-                durtx="<td>"+str(int(float(duration.strip())))+"</td>"
-            if (row[3]=="START" and duration_in_s < 260) or (row[3]=="END"):
-                if row[10] not in my_list:
+                if dur=="0":
+                    txdur="&#8734;"
+                else:
+                    txdur=str(int(float(duration.strip())))
+                durtx="<td>"+txdur+"</td>"
+            if row[10] not in my_list:
                     if row[11].strip().isdigit() or row[11] == "N0CALL" or row[11] == "NOCALL":
                         qrz = "<b><font color=#464646>"+row[11]+"</font></b>"
                     else:
@@ -807,8 +810,8 @@ def process_message(_bmessage):
                         my_list.append(row[10])
                         n += 1
                     f.write(hline+"\n")
-                # n max number items in lastheard table
-                if n == 15:
+            # n max number items in lastheard table
+            if n == 15:
                     break
     f.write("</table></fieldset><br>")
     f.close()
