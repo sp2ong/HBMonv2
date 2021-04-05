@@ -738,49 +738,17 @@ def process_message(_bmessage):
         p = _message[1:].split(",")
         rts_update(p)
         opbfilter = get_opbf()
+        # open lastheard.log file
+        lh_logfile = open(LOG_PATH+"lastheard.log", "a")
         if p[0] == 'GROUP VOICE' and p[2] != 'TX' and p[5] not in opbfilter:
             if p[1] == 'END':
                 log_message = '{} {} {}   SYS: {:8.8s} SRC_ID: {:9.9s} TS: {} TGID: {:7.7s} {:17.17s} SUB: {:9.9s}; {:18.18s} Time: {}s '.format(_now[10:19], p[0][6:], p[1], p[3], p[5], p[7],p[8],alias_tgid(int(p[8]),talkgroup_ids), p[6], alias_short(int(p[6]), subscriber_ids), int(float(p[9])))
-                # log only to file if system is NOT OpenBridge event (not logging open bridge system, name depends on your OB definitions) AND transmit time is LONGER as 2sec (make sense for very short transmits)
-                if LASTHEARD_INC:
-                   if int(float(p[9]))> 2: 
-                      log_lh_message = '{},{},{},{},{},{},{},TS{},TG{},{},{},{}'.format(_now, p[9], p[0], p[1], p[3], p[5], alias_call(int(p[5]), subscriber_ids), p[7], p[8],alias_tgid(int(p[8]),talkgroup_ids),p[6], alias_short(int(p[6]), subscriber_ids))
-                      lh_logfile = open(LOG_PATH+"lastheard.log", "a")
-                      lh_logfile.write(log_lh_message + '\n')
-                      lh_logfile.close()
-                      # Lastheard in Dashboard by SP2ONG
-                      my_list=[]
-                      n=0
-                      f = open(PATH+"templates/lastheard.html", "w")
-                      f.write("<br><fieldset style=\"border-radius: 8px; background-color:#f0f0f0f0;margin-left:15px;margin-right:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;\">\n")
-                      f.write("<legend><b><font color=\"#000\">&nbsp;.: Lastheard :.&nbsp;</font></b></legend>\n")
-                      f.write("<table style=\"width:100%; font: 10pt arial, sans-serif\">\n")
-                      f.write("<TR style=\" height: 32px;font: 10pt arial, sans-serif;"+THEME_COLOR+"\"><TH>Date</TH><TH>Time</TH><TH>Callsign (DMR-Id)</TH><TH>Name</TH><TH>TG#</TH><TH>TG Name</TH><TH>TX (s)</TH><TH>Slot</TH><TH>System</TH></TR>\n")
-                      with open(LOG_PATH+"lastheard.log", "r") as textfile:
-                          for row in islice(reversed(list(csv.reader(textfile))),200):
-                            duration=row[1]
-                            dur=str(int(float(duration.strip())))
-                            if row[10] not in my_list:
-                               if row[11].strip().isdigit() or row[11] == "N0CALL" or row[11] == "NOCALL":
-                                  qrz = "<b><font color=#464646>"+row[11]+"</font></b>"
-                               else:
-                                  qrz = "<a style=\"font: 9pt arial,sans-serif;font-weight:bold;color:#0066ff;\" target=\"_blank\" href=https://qrz.com/db/"+row[11]+">"+row[11]+"</a></b><span style=\"font: 7pt arial,sans-serif\"> ("+row[10]+")</span>"
-                               if len(row) < 13:
-                                   hline="<TR style=\"background-color:#f9f9f9f9;\"><TD>"+row[0][:10]+"</TD><TD>"+row[0][11:16]+"</TD><TD>"+qrz+"</TD><TD><font color=#002d62><b></b></font></TD><TD><font color=#b5651d><b>"+row[8][2:]+"</b></font></TD><TD><font color=green><b>"+row[9]+"</b></font></TD><TD>"+dur+"</TD><TD>"+row[7][2:]+"</TD><TD>"+row[4]+"</TD></TR>"
-                                   my_list.append(row[10])
-                                   n += 1
-                               else:
-                                   hline="<TR style=\"background-color:#f9f9f9f9;\"><TD>"+row[0][:10]+"</TD><TD>"+row[0][11:16]+"</TD><TD>"+qrz+"</TD><TD><font color=#002d62><b>"+row[12]+"</b></font></TD><TD><font color=#b5651d><b>"+row[8][2:]+"</b></font></TD><TD><font color=green><b>"+row[9]+"</b></font></TD><TD>"+dur+"</TD><TD>"+row[7][2:]+"</TD><TD>"+row[4]+"</TD></TR>"
-                                   my_list.append(row[10])
-                                   n += 1
-                               f.write(hline+"\n")
-                            if n == 15:
-                               break
-                      f.write("</table></fieldset><br>")
-                      f.close()
-                 # End of Lastheard
+                log_lh_message = '{},{},{},{},{},{},{},TS{},TG{},{},{},{}'.format(_now, p[9], p[0], p[1], p[3], p[5], alias_call(int(p[5]), subscriber_ids), p[7], p[8],alias_tgid(int(p[8]),talkgroup_ids),p[6], alias_short(int(p[6]), subscriber_ids))
+                lh_logfile.write(log_lh_message + '\n')
             elif p[1] == 'START':
                 log_message = '{} {} {} SYS: {:8.8s} SRC_ID: {:9.9s} TS: {} TGID: {:7.7s} {:17.17s} SUB: {:9.9s}; {:18.18s}'.format(_now[10:19], p[0][6:], p[1], p[3], p[5], p[7],p[8], alias_tgid(int(p[8]),talkgroup_ids), p[6], alias_short(int(p[6]), subscriber_ids))
+                log_lh_message = '{},{},{},{},{},{},{},TS{},TG{},{},{},{}'.format(_now, 0, p[0], p[1], p[3], p[5], alias_call(int(p[5]), subscriber_ids), p[7], p[8],alias_tgid(int(p[8]),talkgroup_ids),p[6], alias_short(int(p[6]), subscriber_ids))
+                lh_logfile.write(log_lh_message + '\n')
             elif p[1] == 'END WITHOUT MATCHING START':
                 log_message = '{} {} {} on SYSTEM {:8.8s}: SRC_ID: {:9.9s} TS: {} TGID: {:7.7s} {:17.17s} SUB: {:9.9s}; {:18.18s}'.format(_now[10:19], p[0][6:], p[1], p[3], p[5], p[7], p[8],alias_tgid(int(p[8]),talkgroup_ids),p[6], alias_short(int(p[6]), subscriber_ids))
             else:
@@ -791,10 +759,64 @@ def process_message(_bmessage):
 
         else:
             logging.debug('{} UNKNOWN LOG MESSAGE'.format(_now[10:19]))
+            
+        # close lastheard.log file    
+        lh_logfile.close()
 
     else:
         logging.debug('got unknown opcode: {}, message: {}'.format(repr(opcode), repr(_message[1:])))
-
+        
+    # Lastheard with TX-ing in Dashboard by SP2ONG
+    my_list=[]
+    n = 0
+    f = open(PATH+"templates/lastheard.html", "w")
+    f.write("<fieldset style=\"border-radius: 8px; background-color:#f0f0f0f0;margin-left:15px;margin-right:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;\">\n")
+    f.write("<legend><b><font color=\"#000\">&nbsp;.: DMR Server activity :.&nbsp;</font></b></legend>\n")
+    f.write("<table style=\"width:100%; font: 10pt arial, sans-serif\">\n")
+    f.write("<TR style=\" height: 32px;font: 10pt arial, sans-serif;"+THEME_COLOR+"\"><TH>Date</TH><TH>Time</TH><TH>Callsign (DMR-Id)</TH><TH>Name</TH><TH>TG#</TH><TH>TG Name</TH><TH>&nbsp;TX (s)&nbsp;</TH><TH>Slot</TH><TH>System</TH></TR>\n")
+    with open(LOG_PATH+"lastheard.log", "r") as textfile:
+                          for row in islice(reversed(list(csv.reader(textfile))),400):
+                            duration_in_s = 0
+                            duration=row[1]
+                            dur=str(int(float(duration.strip())))
+                            year=int(float(row[0][:4].strip()))
+                            month=int(float(row[0][5:7].strip()))
+                            day=int(float(row[0][8:10].strip()))
+                            hour=int(float(row[0][11:13].strip()))
+                            min=int(float(row[0][14:16].strip()))
+                            sec=int(float(row[0][17:19].strip()))
+                            then = datetime.datetime(year, month, day, hour, min, sec)
+                            now  = datetime.datetime.now()
+                            durations = now - then
+                            duration_in_s = durations.total_seconds() 
+                            if dur=="0" and row[3]=="START":
+                              durtx='<td style=\"background:#f33; color:white;font-weight:bold;\">TX-ing</td>'
+                            else:
+                              durtx="<td>"+str(int(float(duration.strip())))+"</td>"
+                            if (row[3]=="START" and duration_in_s < 260) or (row[3]=="END"):
+                             if row[10] not in my_list:
+                               if row[11].strip().isdigit() or row[11] == "N0CALL" or row[11] == "NOCALL":
+                                  qrz = "<b><font color=#464646>"+row[11]+"</font></b>"
+                               else:
+                                  qrz = "<a style=\"font: 9pt arial,sans-serif;font-weight:bold;color:#0066ff;\" target=\"_blank\" href=https://qrz.com/db/"+row[11]+">"+row[11]+"</a></b><span style=\"font: 7pt arial,sans-serif\"> ("+row[10]+")</span>"
+                               if len(row) < 13:
+                                   hline="<TR style=\"background-color:#f9f9f9f9;\"><TD>"+row[0][:10]+"</TD><TD>"+row[0][11:16]+"</TD><TD>"+qrz+"</TD><TD><font color=#002d62><b></b></font></TD><TD><font color=#b5651d><b>"+row[8][2:]+"</b></font></TD><TD><font color=green><b>"+row[9]+"</b></font></TD>"+durtx+"<TD>"+row[7][2:]+"</TD><TD>"+row[4]+"</TD></TR>"
+                                   my_list.append(row[10])
+                                   n += 1
+                               else:
+                                   hline="<TR style=\"background-color:#f9f9f9f9;\"><TD>"+row[0][:10]+"</TD><TD>"+row[0][11:16]+"</TD><TD>"+qrz+"</TD><TD><font color=#002d62><b>"+row[12]+"</b></font></TD><TD><font color=#b5651d><b>"+row[8][2:]+"</b></font></TD><TD><font color=green><b>"+row[9]+"</b></font></TD>"+durtx+"<TD>"+row[7][2:]+"</TD><TD>"+row[4]+"</TD></TR>"
+                                   my_list.append(row[10])
+                                   n += 1
+                               f.write(hline+"\n")
+                             # n is max number items in lastheard table
+                             if n == 15:
+                               break
+    f.write("</table></fieldset><br>")
+    f.close()
+    # refresh main page
+    main = 'i' + itemplate.render(_table=CTABLE,themec=THEME_COLOR,dbridges=BTABLE['SETUP']['BRIDGES'],auth=WEB_AUTH)
+    dashboard_server.broadcast(main)     
+        
 def load_dictionary(_message):
     data = _message[1:]
     return loads(data)
