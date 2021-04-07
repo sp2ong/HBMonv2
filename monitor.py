@@ -789,7 +789,8 @@ def process_message(_bmessage):
             now  = datetime.datetime.now()
             durations = now - then
             duration_in_s = durations.total_seconds() 
-            if dur=="0" and row[3]=="START" and duration_in_s < 260:
+            # Timeout typical TOT 180 sec for missing END of TX info
+            if dur=="0" and row[3]=="START" and duration_in_s < 180:
                 durtx='<td style=\"background:#f33; color:white;font-weight:bold;\">TX-ing</td>'
             else:
                 if dur=="0":
