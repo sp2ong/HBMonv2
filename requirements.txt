@@ -2,4 +2,5 @@ Twisted
 dmr_utils3
 bitstring
 autobahn
-jinja2
+jinja2==2.11.2
+
