@@ -1,0 +1,55 @@
+<fieldset style="background-color:#e0e0e0e0; margin-left:15px;margin-right:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+<legend><b><font color="#000">&nbsp;.: Masters status :.&nbsp;</font></b></legend>
+{% if _table['MASTERS']|length >0 %}
+<table style="table-layout:fixed;width:100%; font: 10pt arial, sans-serif; margin-top:5px; margin-bottom:5px;">
+    <tr class="theme_color" style="font: 10pt arial, sans-serif;">
+        <th style='width: 120px;'>HB Protocol<br>Master Systems</th>
+        <th style='width: 160px;'>Callsign (DMR Id)<br>Info</th>
+        <th style='width: 90px;'>Time Connected</th>
+        <th style='width: 40px;'>Slot</th>
+        <th style='width: 50%;'>Source</th>
+        <th style='width: 40%;'>Destination</th>
+    </tr>
+
+    {% for _master in _table['MASTERS'] %}    
+    {% if ((_table['MASTERS'][_master]['PEERS']|length==0 or _table['MASTERS'][_master]['PEERS']|length>0) and emaster==True) or (_table['MASTERS'][_master]['PEERS']|length>0 and emaster==False) %}
+
+    <tr style="background-color:#f9f9f9f9;">
+        <td style="font-weight:bold" rowspan="{{ (_table['MASTERS'][_master]['PEERS']|length * 2) +1 }}"> {{_master}}<br><div style="font: 8pt arial, sans-serif">{{_table['MASTERS'][_master]['REPEAT']}}</div></td>
+    </tr>
+    {% for _client, _cdata in _table['MASTERS'][_master]['PEERS'].items() %}
+    <tr style="background-color:#f9f9f9f9;">
+        <td rowspan="2"><div class="tooltip"><b><font color=#0066ff>{{ _cdata['CALLSIGN']}}</font> 
+        </b><span style="font: 8pt arial,sans-serif">(Id: {{ _client }})</span><span class="tooltiptext">
+        <span style="font: 9pt arial,sans-serif;color:#FFFFFF">
+        {% if _cdata['RX_FREQ'] == 'N/A' and _cdata['TX_FREQ'] == 'N/A' %}
+             &nbsp;&nbsp;&nbsp;<b>Type: <font color=yellow>IP Network</font></b><br>
+        {% else %} 
+            &nbsp;&nbsp;&nbsp;<b>Type: <font color=yellow>Radio</font></b> ({{ _cdata['SLOTS'] }})<br>
+        {% endif %}
+            &nbsp;&nbsp;&nbsp;<b>Soft_Ver</b>: {{_cdata['SOFTWARE_ID'] }}
+        <br>&nbsp;&nbsp;&nbsp;<b>Hardware</b>: {{_cdata['PACKAGE_ID'] }}</span></span></div>
+        <br><div style="font: 92% arial,sans-serif; color:#b5651d;font-weight:bold">{{_cdata['LOCATION']}}</div></td>
+        <td style="background-color:#e8ffec;font: 10pt arial, sans-serif;" rowspan="2">{{ _cdata['CONNECTED'] }}</td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[1]['BGCOLOR'] if _cdata[1]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _cdata[1]['COLOR'] if _cdata[1]['COLOR']|length !=0 else '000000' }}"><span style="color:#{{ _cdata[1]['COLOR'] if _cdata[1]['BGCOLOR'] == 'ff6347' else 'b70101'}}">TS1</span></td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[1]['BGCOLOR'] if _cdata[1]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _cdata[1]['COLOR'] if _cdata[1]['COLOR']|length !=0 else '000000' }}">{{ _cdata[1]['SUB']|safe }}</td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[1]['BGCOLOR'] if _cdata[1]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _cdata[1]['COLOR'] if _cdata[1]['COLOR']|length !=0 else '000000' }}">{{ _cdata[1]['DEST']|safe }}</td>
+        <tr style="background-color:#f9f9f9f9;">
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[2]['BGCOLOR'] if _cdata[2]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _cdata[2]['COLOR'] if _cdata[2]['COLOR']|length !=0 else '000000' }}"><span style="color:#{{ _cdata[2]['COLOR'] if _cdata[2]['BGCOLOR'] == 'ff6347' else '3a4aa6'}}">TS2</span></td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[2]['BGCOLOR'] if _cdata[2]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _cdata[2]['COLOR'] if _cdata[2]['COLOR']|length !=0 else '000000' }}">{{ _cdata[2]['SUB']|safe }}</td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _cdata[2]['BGCOLOR'] if _cdata[2]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _cdata[2]['COLOR'] if _cdata[2]['COLOR']|length !=0 else '000000' }}">{{ _cdata[2]['DEST']|safe }}</td>
+        </tr>
+
+    </tr>    
+     {% endfor %}
+   {% endif %}
+{% endfor %}
+</table>
+{% else %}
+         <table style='width:100%; font: 13pt arial, sans-serif; margin-top:8px;margin-bottom:8px;'>
+             <tr style='border:none; background-color:#f9f9f9f9;'>
+             <td style='border:none;height:60px;'><font color=brown><b><center>Waiting for data from the Server ...</center></b></td>
+             </tr>
+            </table>
+{% endif %}
+</fieldset>
