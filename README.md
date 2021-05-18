@@ -16,6 +16,7 @@ This is version HBMonitor V2
     cd /opt
     git clone https://github.com/sp2ong/HBMonv2.git
     cd HBMonv2
+    git checkout webserver-python
     chmod +x install.sh
     ./install.sh
     cp config-SAMPLE.py config.py
