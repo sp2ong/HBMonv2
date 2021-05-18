@@ -15,9 +15,23 @@ Run script  create database
    cd /opt/HBMonv2/sysinfo
    ./rrd-db.sh 
 
+
+Edit file
+    
+  /opt/HBMonv2/sysinfo/cpu.sh
+
+Setup in WEB_PATH path to your web server html directory 
+for example /var/www/html or /var/www/html/hbmon 
+where is located your html files of HBMon
+
 Edit file
     
   /opt/HBMonv2/sysinfo/graph.sh
+
+Setup in WEB_PATH path to your web server html directory 
+for example /var/www/html or /var/www/html/hbmon 
+where is located your html files of HBMon
+
 
 Setup temperature depend of your computer 
 On raspberry pi or PC you can use sensors package to get temperature CPU
@@ -27,7 +41,6 @@ If not avilable set:
    tempcpu=false
 
 For VPS set:
-
    tempcpu=false
 
 
@@ -59,11 +72,13 @@ Create config for mrtg:
 
   cfgmaker -zero-speed=10000  public@localhost > /etc/mrtg.cfg
 
-Please edit /etc/mrtg.cfg and change diretory to store image change WorkDir to:
+Please edit /etc/mrtg.cfg and change diretory to store image change WorkDir with
+path to your webserver html directory where is html files for HBMon:
 
-   WorkDir:/opt/HBMonv2/img/mrtg
+   WorkDir:/var/www/html/hbmon/img/mrtg
 
-put below lines in section your netrwork card 
+
+Put below lines in section your netrwork card 
 and replace localhost_2 to your name network card as result cfgmaker generate in mrtg.cfg
 
  XSize[localhost_2]: 600 
@@ -74,6 +89,4 @@ Tune MaxBytes value for exmample 50000 to set vertical scale graph
 
 Please edit template file where is which graph you are want display /opt/HBMonv2/templates/sysinfo_template.html
 and check / verify name of img from mrtg: <img alt="" src="/img/mrtg/localhost_2-day.png" />
-
-
 
