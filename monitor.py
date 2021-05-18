@@ -308,7 +308,7 @@ def add_hb_peer(_peer_conf, _ctable_loc, _peer):
     # (9 char, but we are just software)  see https://wiki.brandmeister.network/index.php/Homebrew/example/php2
     
     if _peer_conf['TX_FREQ'].strip().isdigit() and _peer_conf['RX_FREQ'].strip().isdigit() and str(type(_peer_conf['TX_FREQ'])).find("bytes") != -1 and str(type(_peer_conf['RX_FREQ'])).find("bytes") != -1:
-        if _peer_conf['TX_FREQ'][:3] == b'000' or _peer_conf['RX_FREQ'][:3] == b'000':
+        if _peer_conf['TX_FREQ'][:3] == b'000' or _peer_conf['TX_FREQ'][:1] == b'0' or _peer_conf['RX_FREQ'][:3] == b'000' or _peer_conf['RX_FREQ'][:1] == b'0':
             _ctable_peer['TX_FREQ'] = 'N/A'
             _ctable_peer['RX_FREQ'] = 'N/A'
         else:
@@ -345,6 +345,16 @@ def add_hb_peer(_peer_conf, _ctable_loc, _peer):
     else:
        _ctable_peer['LOCATION'] = _peer_conf['LOCATION']
 
+    if str(type(_peer_conf['DESCRIPTION'])).find("bytes") != -1:
+       _ctable_peer['DESCRIPTION'] = _peer_conf['DESCRIPTION'].decode('utf-8').strip()
+    else:
+       _ctable_peer['DESCRIPTION'] = _peer_conf['DESCRIPTION']
+
+    if str(type(_peer_conf['URL'])).find("bytes") != -1:
+       _ctable_peer['URL'] = _peer_conf['URL'].decode('utf-8').strip()
+    else:
+       _ctable_peer['URL'] = _peer_conf['URL']
+       
     if str(type(_peer_conf['CALLSIGN'])).find("bytes") != -1:
        _ctable_peer['CALLSIGN'] = _peer_conf['CALLSIGN'].decode('utf-8').strip()
     else:
@@ -394,7 +404,7 @@ def build_hblink_table(_config, _stats_table):
                 for _peer in _hbp_data['PEERS']:
                     add_hb_peer(_hbp_data['PEERS'][_peer], _stats_table['MASTERS'][_hbp]['PEERS'], _peer)
 
-            # Proccess Peer Systems
+            # Process Peer Systems
             elif (_hbp_data['MODE'] == 'XLXPEER' or _hbp_data['MODE'] == 'PEER') and HOMEBREW_INC:
                 _stats_table['PEERS'][_hbp] = {}
                 _stats_table['PEERS'][_hbp]['MODE'] = _hbp_data['MODE']
@@ -403,6 +413,16 @@ def build_hblink_table(_config, _stats_table):
                      _stats_table['PEERS'][_hbp]['LOCATION'] = _hbp_data['LOCATION'].decode('utf-8').strip()
                 else:
                      _stats_table['PEERS'][_hbp]['LOCATION'] = _hbp_data['LOCATION']
+                     
+                if str(type(_hbp_data['DESCRIPTION'])).find("bytes") != -1:
+                     _stats_table['PEERS'][_hbp]['DESCRIPTION'] = _hbp_data['DESCRIPTION'].decode('utf-8').strip()
+                else:
+                     _stats_table['PEERS'][_hbp]['DESCRIPTION'] = _hbp_data['DESCRIPTION']
+                     
+                if str(type(_hbp_data['URL'])).find("bytes") != -1:
+                     _stats_table['PEERS'][_hbp]['URL'] = _hbp_data['DESCRIPTION'].decode('utf-8').strip()
+                else:
+                     _stats_table['PEERS'][_hbp]['URL'] = _hbp_data['DESCRIPTION']
 
                 if str(type(_hbp_data['CALLSIGN'])).find("bytes") != -1:
                      _stats_table['PEERS'][_hbp]['CALLSIGN'] = _hbp_data['CALLSIGN'].decode('utf-8').strip()
