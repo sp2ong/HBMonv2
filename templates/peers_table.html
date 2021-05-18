@@ -1,0 +1,37 @@
+<fieldset style="background-color:#e0e0e0e0;margin-left:15px;margin-right:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+<legend><b><font color="#000">&nbsp;.: Peers status :.&nbsp;</font></b></legend>
+{% if _table['PEERS']|length >0 %}
+<table style="table-layout:fixed;width:100%; font: 10pt arial, sans-serif; margin-top:5px;margin-bottom:5px;">
+    <tr class="theme_color" style="font: 10pt arial, sans-serif;">
+        <th style='width: 120px;'>HB Protocol<br>Peer Systems</th>
+        <th style='width: 160px;'>Callsign (DMR Id)<br>Info</th>
+        <th style='width: 90px;'>Connected<br>TX/RX/Lost</th>
+        <th style='width: 42px;'>Slot</th>
+        <th style='width: 50%;'>Source</th>
+        <th style='width: 40%;'>Destination</th>
+    </tr>
+    {% for _peer, _pdata  in _table['PEERS'].items() %}
+    <tr style="background-color:#f9f9f9f9;">
+        <td style="font-weight:bold" rowspan="2"> {{ _peer}}<br><span style="font-weight:normal; font: 7pt arial, sans-serif;">Mode: {{ _table['PEERS'][_peer]['MODE'] }}</span></td>
+        <td rowspan="2"><div class="tooltip"><b><font color=#0066ff>{{_table['PEERS'][_peer]['CALLSIGN']}}</font> </b><span style="font-weight:normal; font: 8pt arial, sans-serif;">(Id: {{ _table['PEERS'][_peer]['RADIO_ID'] }})</span><span class="tooltiptext" style="width:170px;">&nbsp;&nbsp;&nbsp;<b>Linked Time Slot: <font color=yellow>{{ _table['PEERS'][_peer]['SLOTS'] }}</font></b></span></div><br><div style="font: 92% arial, sans-serif; color:#b5651d;font-weight:bold">{{_table['PEERS'][_peer]['LOCATION']}}</div></td>
+        <td rowspan="2"; style="font: 9pt arial, sans-serif;{{ 'background-color:#98FB98' if _table['PEERS'][_peer]['STATS']['CONNECTION'] == 'YES' else ';background-color:#ff704d' }}">{{ _table['PEERS'][_peer]['STATS']['CONNECTED'] }}<br><div style="font: 8pt arial, sans-serif">{{ _table['PEERS'][_peer]['STATS']['PINGS_SENT'] }} / {{ _table['PEERS'][_peer]['STATS']['PINGS_ACKD'] }} / {{ _table['PEERS'][_peer]['STATS']['PINGS_SENT'] - _table['PEERS'][_peer]['STATS']['PINGS_ACKD'] }}</div></td>
+        
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _pdata[1]['BGCOLOR'] if _pdata[1]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _pdata[1]['COLOR'] if _pdata[1]['COLOR']|length !=0 else '000000' }}"><span style="color:#b70101">TS1</span></td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _pdata[1]['BGCOLOR'] if _pdata[1]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _pdata[1]['COLOR'] if _pdata[1]['COLOR']|length !=0 else '000000' }}">{{ _pdata[1]['SUB']|safe }}</td>
+        <td style="font: 10pt arial, sans-serif;color:#464646;background-color:#{{ _pdata[1]['BGCOLOR'] if _pdata[1]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _pdata[1]['COLOR'] if _pdata[1]['COLOR']|length !=0 else '000000' }}">{{ _pdata[1]['DEST']|safe }}</td>
+        <tr style="background-color:#f9f9f9f9;">
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _pdata[2]['BGCOLOR'] if _pdata[2]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _pdata[2]['COLOR'] if _pdata[2]['COLOR']|length !=0 else '000000' }}"><span style="color:#{{ _pdata[2]['COLOR'] if _pdata[2]['BGCOLOR'] == 'ff6347' else '3a4aa6'}}">TS2</span></td>
+        <td style="font: 10pt arial, sans-serif;background-color:#{{ _pdata[2]['BGCOLOR'] if _pdata[2]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _pdata[2]['COLOR'] if _pdata[2]['COLOR']|length !=0 else '000000' }}">{{ _pdata[2]['SUB']|safe }}</td>
+        <td style="font: 10pt arial, sans-serif;color:#464646;background-color:#{{ _pdata[2]['BGCOLOR'] if _pdata[2]['BGCOLOR']|length !=0 else 'f9f9f9f9' }}; color:#{{ _pdata[2]['COLOR'] if _pdata[2]['COLOR']|length !=0 else '000000' }}">{{ _pdata[2]['DEST']|safe }}</td>
+        </tr>
+    </tr>
+  {% endfor %}
+</table>
+ {% else %}
+         <table style='width:100%; font: 13pt arial, sans-serif; margin-top:8px;margin-bottom:8px;'>
+             <tr style='border:none; background-color:#f9f9f9f9;'>
+             <td style='border:none;height:60px;'><font color=brown><b><center>Waiting for data from the Server ... or not defined on Server</center></b></td>
+             </tr>
+            </table>
+ {% endif %}
+</fieldset>
