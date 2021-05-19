@@ -41,9 +41,9 @@ webserver apache2 etc.
 
     In the html directory there is a buttons.html file that you can tune to menu keys 
     
-    The logo image you can replace with file image: img/logo.png
-    
-
+    The logo image you can replace with file image in html directory  img/logo.png
+    cp utils/lastheard /etc/cron.daily/
+    chmod +x /etc/cron.daily/lastherad
     cp utils/hbmon.service /lib/systemd/system/
     systemctl enable hbmon
     systemctl start hbmon
@@ -54,7 +54,8 @@ webserver apache2 etc.
     
     https://github.com/sp2ong/HBMonv2/tree/main/sysinfo
     
-    Please remember the table lastheard displays only station transmissions that are longer than 2 seconds.
+    Please remember the table lastheard displays only station transmissions 
+    that are longer than 2 seconds.
 
     If you want to have more than the last 15 entries in the Lastherad table
     change in the monitor.py file line from
@@ -64,7 +65,9 @@ webserver apache2 etc.
     
     In directory sysinfo/ you can find info on how to setup display SYSTEM Info data in Monitor. 
 
-    If not need monitor online rules (I do not recommend please use in config.py BRIDGES_INC = False )
+    I recommend that you do not use the BRIDGE_INC = True option to display bridge information 
+    (if you have multiple bridges displaying this information will increase the CPU load, 
+    try to use BRIDGES_INC = False in config.py) 
 
 ---
 
