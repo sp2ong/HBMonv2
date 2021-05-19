@@ -33,7 +33,7 @@ webserver apache2 etc.
     accessible from http://dmrserver.org/hbmon
 
     You can copy to /var/www/hbmon and start HBMonitor access by configuring 
-    the web server for subdomains e.g. hbmon.dmrserver.org 
+    virtual the web server for subdomains e.g. hbmon.dmrserver.org 
     the access will then be http://hbmon.dmrserver.org 
 
     In the html/include/ directory there is a config.php file in which you 
