@@ -58,10 +58,14 @@ webserver apache2 etc.
     that are longer than 2 seconds.
 
     If you want to have more than the last 15 entries in the Lastherad table
-    change in the monitor.py file line from
-      if n == 15:
+    change in the monitor.py file line from:
+    
+       # maximum number of lists in lastheard on the main page 
+       if n == 20:
     to for example:
-      if n == 20:
+       if n == 25:
+    
+    
     
     In directory sysinfo/ you can find info on how to setup display SYSTEM Info data in Monitor. 
 
