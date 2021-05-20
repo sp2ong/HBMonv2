@@ -65,6 +65,10 @@ webserver apache2 etc.
     to for example:
        if n == 25:
     
+    save QSOs to lastheared.log for which transmission duration is longer than 2 sec, 
+    use >= 0 instead of >2 if you want to record all activities
+    
+       if int(float(p[9])) > 2:    
     
     
     In directory sysinfo/ you can find info on how to setup display SYSTEM Info data in Monitor. 
