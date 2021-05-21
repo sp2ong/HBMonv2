@@ -10,8 +10,7 @@ I recommend not running HBmonitor on the same computer as HBlink3
 HBmonitor tested on Debian v9 and v10
 
 This version of HBMonv2 requires a web server like apache2, lighttpd and 
-php support running on the server. SSL support is available in your configuration
-webserver apache2 etc.
+php support running on the server. 
 
 
     cd /opt
