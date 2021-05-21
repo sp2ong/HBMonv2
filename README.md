@@ -76,6 +76,27 @@ webserver apache2 etc.
     I recommend that you do not use the BRIDGE_INC = True option to display bridge information 
     (if you have multiple bridges displaying this information will increase the CPU load, 
     try to use BRIDGES_INC = False in config.py) 
+    
+    
+    ***************************************************************************************
+    
+    The HBMonv2 version without use external web server like apche2 etc is still available:
+    
+    cd /opt
+    git clone https://github.com/sp2ong/HBMonv2.git
+    cd HBMonv2
+    git checkout webserver-python
+    chmod +x install.sh
+    ./install.sh
+    cp config-SAMPLE.py config.py
+    edit config.py and change what you necessary
+    cp utils/hbmon.service /lib/systemd/system/
+    systemctl enable hbmon
+    systemctl start hbmon
+    systemctl status hbmon
+    forward TCP port 9000 and web server port 8080 in firewall
+    
+    *****************************************************************************************
 
 ---
 
