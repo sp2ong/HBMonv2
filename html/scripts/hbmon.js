@@ -11,9 +11,15 @@
             masters_table = document.getElementById('masters');
             opb_table = document.getElementById('opb');
             peers_table = document.getElementById('peers');
-            
-            wsuri = (((window.location.protocol === "https:") ? "wss://" : "ws://") + window.location.hostname + ":9000");
-            
+
+// Use both https and http protocols
+             if (window.location.protocol != "https:") {
+                 wsuri = "ws://" + window.location.hostname + ":9000";
+             }
+             else {
+                 wsuri = (((window.location.protocol === "https:") ? "wss://" : "ws://") + window.location.hostname + ":9001");
+             }
+          
             if ("WebSocket" in window) {
                sock = new WebSocket(wsuri);
             } else if ("MozWebSocket" in window) {

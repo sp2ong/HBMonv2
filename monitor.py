@@ -40,7 +40,7 @@ from subprocess import check_call, CalledProcessError
 # Twisted modules
 from twisted.internet.protocol import ReconnectingClientFactory, Protocol
 from twisted.protocols.basic import NetstringReceiver
-from twisted.internet import reactor, task
+from twisted.internet import reactor, task, ssl
 
 import base64
 
@@ -1012,10 +1012,10 @@ if __name__ == '__main__':
     # and add load ssl module in line number 43: from twisted.internet import reactor, task, ssl
     #
     # put certificate https://letsencrypt.org/ used in apache server 
-    #certificate = ssl.DefaultOpenSSLContextFactory('/etc/letsencrypt/live/hbmon.dmrserver.org/privkey.pem', '/etc/letsencrypt/live/hbmon.dmrserver.org/cert.pem')
-    #dashboard_server = dashboardFactory('wss://*:9000')
-    #dashboard_server.protocol = dashboard
-    #reactor.listenSSL(9000, dashboard_server,certificate)
+    certificate = ssl.DefaultOpenSSLContextFactory('/etc/letsencrypt/live/hbmon.dmrserver.org/privkey.pem', '/etc/letsencrypt/live/hbmon.dmrserver.org/cert.pem')
+    dashboard_server = dashboardFactory('wss://*:9001')
+    dashboard_server.protocol = dashboard
+    reactor.listenSSL(9001, dashboard_server,certificate)
 
     # Create websocket server to push content to clients via http:// non SSL
     dashboard_server = dashboardFactory('ws://*:9000')
