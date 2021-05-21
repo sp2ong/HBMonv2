@@ -12,7 +12,7 @@
             opb_table = document.getElementById('opb');
             peers_table = document.getElementById('peers');
             
-            wsuri = "ws://" + window.location.hostname + ":9000";
+            wsuri = (((window.location.protocol === "https:") ? "wss://" : "ws://") + window.location.hostname + ":9000");
             
             if ("WebSocket" in window) {
                sock = new WebSocket(wsuri);
