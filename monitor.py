@@ -777,11 +777,11 @@ def process_message(_bmessage):
                                else:
                                   qrz = "<a style=\"font: 9pt arial,sans-serif;font-weight:bold;color:#0066ff;\" target=\"_blank\" href=https://qrz.com/db/"+row[11]+">"+row[11]+"</a></b><span style=\"font: 7pt arial,sans-serif\"> ("+row[10]+")</span>"
                                if len(row) < 13:
-                                   hline="<TR style=\"background-color:#f9f9f9f9;\"><TD>"+row[0][:10]+"</TD><TD>"+row[0][11:16]+"</TD><TD>"+qrz+"</TD><TD><font color=#002d62><b></b></font></TD><TD><font color=#b5651d><b>"+row[8][2:]+"</b></font></TD><TD><font color=green><b>"+row[9]+"</b></font></TD><TD>"+dur+"</TD><TD>"+row[4]+"</TD></TR>"
+                                   hline="<TR class=\"log\"><TD>"+row[0][:10]+"</TD><TD>"+row[0][11:16]+"</TD><TD>"+qrz+"</TD><TD><font color=#002d62><b></b></font></TD><TD><font color=#b5651d><b>"+row[8][2:]+"</b></font></TD><TD><font color=green><b>"+row[9]+"</b></font></TD><TD>"+dur+"</TD><TD>"+row[4]+"</TD></TR>"
                                    my_list.append(row[10])
                                    n += 1
                                else:
-                                   hline="<TR style=\"background-color:#f9f9f9f9;\"><TD>"+row[0][:10]+"</TD><TD>"+row[0][11:16]+"</TD><TD>"+qrz+"</TD><TD><font color=#002d62><b>"+row[12]+"</b></font></TD><TD><font color=#b5651d><b>"+row[8][2:]+"</b></font></TD><TD><font color=green><b>"+row[9]+"</b></font></TD><TD>"+dur+"</TD><TD>"+row[4]+"</TD></TR>"
+                                   hline="<TR class=\"log\"><TD>"+row[0][:10]+"</TD><TD>"+row[0][11:16]+"</TD><TD>"+qrz+"</TD><TD><font color=#002d62><b>"+row[12]+"</b></font></TD><TD><font color=#b5651d><b>"+row[8][2:]+"</b></font></TD><TD><font color=green><b>"+row[9]+"</b></font></TD><TD>"+dur+"</TD><TD>"+row[4]+"</TD></TR>"
                                    my_list.append(row[10])
                                    n += 1
                                f.write(hline+"\n")
