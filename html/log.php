@@ -22,10 +22,10 @@ include_once 'include/config.php';
 <p></p>
 </div>
 <?php include_once 'buttons.html'; ?>
-<div style="width: 1150px;">
+<div style="width: 1100px;">
 <p align="middle">
 <div style="overflow-x:auto;">
-<center><fieldset style="background-color:#e0e0e0e0; width:1100px;margin-left:15px;margin-right:15px;margin-top:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+<center><fieldset style="background-color:#e0e0e0e0;margin-left:15px;margin-right:15px;margin-top:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <table style="border-collapse: collapse; border: 1px solid #C1DAD7; width: 100%;">
 <tr><th colspan=9 style="height: 30px;font-size:18px;font-weight:bold;">LastHeard</th></tr>
 <tr class="theme_color" style="height:35px; text-align: center;font-weight:bold;"><TH>&nbsp;&nbsp;Date<TH>&nbsp;Time<TH>&nbsp;Callsign (DMR-Id)<TH>&nbsp;&nbsp;Name<TH>&nbsp;TG#<TH>&nbsp;&nbsp;TG Name<TH>TX (s)&nbsp;<TH>Source
