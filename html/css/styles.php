@@ -17,7 +17,7 @@ html {
 }
 
 
-table.log {background-color: #f1f1f1; border-collapse: collapse; border: 1px solid #C1DAD7; width: 100%;}
+table.log {background-color: #f0f0f0; border-collapse: collapse; border: 1px solid #C1DAD7; width: 100%;}
 th.log {height: 30px; text-align: center;}
 tr:nth-child(even).log {background-color: #fafafa; height: 20px; text-align: center;}
 td.log {font-family: Monospace; height: 20px;}
