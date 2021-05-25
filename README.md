@@ -71,8 +71,10 @@ php support running on the server.
     
     
     In directory sysinfo/ you can find info on how to setup display SYSTEM Info data in Monitor.
-    You can install ezSM to monitor your server: https://www.ezservermonitor.com/
-
+    You can use and install ezSM to monitor your server: https://www.ezservermonitor.com
+    instead of using rrdtools and scripts.
+    
+    
     I recommend that you do not use the BRIDGE_INC = True option to display bridge information 
     (if you have multiple bridges displaying this information will increase the CPU load, 
     try to use BRIDGES_INC = False in config.py) 
