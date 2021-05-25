@@ -73,7 +73,7 @@ while (($data = fgetcsv ($handle)) !==false)
 }
 
 // define some macros for table output
-$s = "<TD>";
+$s = "<TD class=\"log\">";
 $s_r = "<TD align=\"right\">";
 $s_m = "<TD align=\"center\">";
 
