@@ -70,7 +70,8 @@ php support running on the server.
        if int(float(p[9])) > 2:    
     
     
-    In directory sysinfo/ you can find info on how to setup display SYSTEM Info data in Monitor. 
+    In directory sysinfo/ you can find info on how to setup display SYSTEM Info data in Monitor.
+    You can install ezSM to monitor your server: https://www.ezservermonitor.com/
 
     I recommend that you do not use the BRIDGE_INC = True option to display bridge information 
     (if you have multiple bridges displaying this information will increase the CPU load, 
