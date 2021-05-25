@@ -1,4 +1,11 @@
 Monitoring system 
+==================
+
+You can use and install ezSM tool to monitor your server instead described below method. 
+The ezSM you can download from: https://www.ezservermonitor.com/
+
+
+Below is a description of how to monitor the system using rrdtools and scripts :
 
 Install package:
 
