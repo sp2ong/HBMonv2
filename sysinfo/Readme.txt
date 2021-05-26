@@ -4,6 +4,30 @@ Monitoring system
 You can use and install ezSM tool to monitor your server instead described below method. 
 The ezSM you can download from: https://www.ezservermonitor.com/
 
+You can put in esm.config.json monitor services like HBMonitor, HBlink like:
+ 
+    "services": {
+        "show_port": false,
+        "list": [
+            {
+                "name": "Web Server",
+                "host": "localhost",
+                "port": 80,
+                "protocol": "tcp"
+            },
+            {
+                "name": "HBMonitor",
+                "host": "localhost",
+                "port": 9000,
+                "protocol": "tcp"
+            },
+            {
+                "name": "HBLink",
+                "host": "localhost",
+                "port": 4321,
+                "protocol": "tcp"
+            }
+
 
 Below is a description of how to monitor the system using rrdtools and scripts :
 
