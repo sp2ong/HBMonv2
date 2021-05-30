@@ -5,8 +5,10 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 
 // Name of the monitored Dashboard
-
 define("REPORT_NAME","Dashboard of local DMR network");
+
+// Height of Server Activity window: 20px; 1 row, 40px 2 rows, 60px 3 rows
+define("HEIGHT_ACTIVITY","40px");
 
 //
 // Theme colors define
