@@ -7,7 +7,50 @@ header("Content-type: text/css");
 .button <?php echo "{".THEME_COLOR."}\n"; ?>
 .dropbtn <?php echo "{".THEME_COLOR."}\n"; ?>
 
-table, td, th {border: .5px solid #d0d0d0; padding: 2px; border-collapse: collapse; text-align:center;}
+#lact {
+ height:<?php echo HEIGHT_ACTIVITY; ?>;
+ width: 100%;
+ border-collapse: collapse;
+ border:none;
+}
+
+#rcorner {
+  border-radius: 10px;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border: 1px solid DarkOrange;
+  background: #e9e9e9;
+  padding: 10px;
+  text-align:center;
+  font: 10pt arial, sans-serif; 
+  font-weight:bold;
+  margin-top:0px;
+  color:#002d62;
+  white-space:normal;
+  height: 100%;
+  line-height:20px;
+}
+
+#rcornerh {
+  border-radius:8px;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+  <?php echo THEME_COLOR."\n"; ?>
+  text-align:center;
+  vertical-align: middle;
+  font: 9pt arial, sans-serif; 
+  font-weight:bold;
+  color:white;
+  height:25px;
+  line-height:25px;
+}
+
+table, td, th {
+  border: .5px solid #d0d0d0; 
+  padding: 2px; 
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align:center;}
 tr.theme_color <?php echo "{".THEME_COLOR."}\n"; ?>
 th.theme_color <?php echo "{".THEME_COLOR."}\n"; ?>
 
