@@ -86,7 +86,7 @@ php support running on the server.
     
     ***************************************************************************************
     
-    The HBMonv2 version without use external web server like apche2 etc is still available:
+    The HBMonv2 version without use external web server like apache2 etc is still available:
     
     cd /opt
     git clone https://github.com/sp2ong/HBMonv2.git
