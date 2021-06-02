@@ -659,7 +659,7 @@ def rts_update(p):
                 CTABLE['MASTERS'][system]['PEERS'][peer][timeSlot]['BGCOLOR'] = bgcolor
                 CTABLE['MASTERS'][system]['PEERS'][peer][timeSlot]['TYPE'] = callType
                 CTABLE['MASTERS'][system]['PEERS'][peer][timeSlot]['SUB'] = '{} ({})'.format(alias_short(sourceSub, subscriber_ids), sourceSub)
-                CTABLE['MASTERS'][system]['PEERS'][peer][timeSlot]['SUB'] = '{}'.format(alias_call(sourceSub, subscriber_ids))
+                CTABLE['MASTERS'][system]['PEERS'][peer][timeSlot]['CALL'] = '{}'.format(alias_call(sourceSub, subscriber_ids))
                 CTABLE['MASTERS'][system]['PEERS'][peer][timeSlot]['SRC'] = peer
                 CTABLE['MASTERS'][system]['PEERS'][peer][timeSlot]['DEST'] = 'TG {}&nbsp;&nbsp;&nbsp;&nbsp;{}'.format(destination,alias_tgid(destination,talkgroup_ids))    
                 CTABLE['MASTERS'][system]['PEERS'][peer][timeSlot]['TG'] = 'TG&nbsp;{}'.format(destination)    
