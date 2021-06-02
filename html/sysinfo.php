@@ -22,10 +22,6 @@ include_once 'include/config.php';
 <p></p>
 </div>
 <?php include_once 'buttons.html'; ?>
-<div style="width: 1100px;">
-<noscript>You must enable JavaScript</noscript>
-    <p id="sinfo"></p>
-</div>
 <fieldset style="background-color:#e0e0e0;display:inline-block;margin-left:20px;margin-right:20px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <legend><b><font color="#000">&nbsp;.: System Info :.&nbsp;</font></b></legend>
 <center>
