@@ -18,7 +18,7 @@ header("Content-type: text/css");
   border-radius: 10px;
   -moz-border-radius:10px;
   -webkit-border-radius:10px;
-  border: 1px solid DarkOrange;
+  border: 1px solid Lightgrey;
   background: #e9e9e9;
   padding: 10px;
   text-align:center;
