@@ -21,10 +21,6 @@ include_once 'include/config.php';
 <p></p>
 </div>
 <?php include_once 'buttons.html'; ?>
-<div style="width: 1100px;">
-<noscript>You must enable JavaScript</noscript>
-    <p id="info"></p>
-</div>
 <!-- TG table -->
 <div style="width: 1100px; margin-left:0px;">
 <fieldset style="box-shadow:0 0 10px #999;background-color:#e0e0e0e0; width:1050px;margin-left:15px;margin-right:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
