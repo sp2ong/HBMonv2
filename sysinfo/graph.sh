@@ -9,7 +9,7 @@ WEB_PATH='/var/www/html/'
 
 # Disable = false or enable = true  create graph fortemperature CPU
 
-tempcpu=true
+tempcpu=false
 
 # Setup temperature for CPU ============
 
@@ -26,8 +26,9 @@ fi
 # after this check result run command: sensors to see temperature CPU, if no set above tempcpu=false
 
 # Remove when use for Raspberry PI (see above)
-
+if $tempcpu == "True" ; then
 tempC=`sensors | grep -i "Core 0" | grep "$1" | sed -re "s/.*:[^+]*?[+]([.0-9]+)[ °]C.*/\1/g"`
+fi
 
 #=====================================
 
