@@ -14,7 +14,7 @@ The ezSM you can download from: https://www.ezservermonitor.com/
    
    <a href="sysinfo.php"><button class="button link">&nbsp;System Info&nbsp;</button></a>
    to:
-   <a href="esm/"><button class="button link">&nbsp;System Info&nbsp;</button></a>
+   <a target=_blank href="esm/"><button class="button link">&nbsp;System Info&nbsp;</button></a>
 
 You can put in esm.config.json monitor services like HBMonitor, HBlink like:
  
