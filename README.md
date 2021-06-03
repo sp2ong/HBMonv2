@@ -39,8 +39,8 @@ php support running on the server.
     set the color theme and name for your Dashboard. 
     
     In the html/include/config.php you can defined height of Server Activity 
-    window: 20px; 1 row, 40px 2 rows, 60px 3 rows:
-    define("HEIGHT_ACTIVITY","40px");
+    window: 45px; 1 row, 60px 2 rows, 80px 3 rows:
+    define("HEIGHT_ACTIVITY","45px");
 
     In the html directory there is a buttons.html file that you can tune to menu keys 
     
