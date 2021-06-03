@@ -4,6 +4,13 @@ Monitoring system
 You can use and install ezSM tool to monitor your server instead described below method. 
 The ezSM you can download from: https://www.ezservermonitor.com/
 
+   cd /var/www/html
+   git clone https://github.com/shevabam/ezservermonitor-web.git
+   mv ezservermonitor-web esm
+   cd esm/conf/
+   
+   Edit file esm.config.json and read domunetation about configuration: https://www.ezservermonitor.com/esm-web/documentation
+
 You can put in esm.config.json monitor services like HBMonitor, HBlink like:
  
     "services": {
@@ -29,6 +36,10 @@ You can put in esm.config.json monitor services like HBMonitor, HBlink like:
             }
 
 
+
+====================================================
+Alternative SYSInfo based on rrdtools and scripts
+====================================================
 Below is a description of how to monitor the system using rrdtools and scripts :
 
 Install package:
@@ -118,6 +129,6 @@ and replace localhost_2 to your name network card as result cfgmaker generate in
 
 Tune MaxBytes value for exmample 50000 to set vertical scale graph
 
-Please edit template file where is which graph you are want display /opt/HBMonv2/templates/sysinfo_template.html
-and check / verify name of img from mrtg: <img alt="" src="/img/mrtg/localhost_2-day.png" />
+Please edit template file where is which graph you are want display /var/www/html/sysinfo.php
+and check / verify name of img from mrtg: <img alt="" src="img/mrtg/localhost_2-day.png" />
 
