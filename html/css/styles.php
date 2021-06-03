@@ -35,7 +35,7 @@ header("Content-type: text/css");
   white-space:normal;
   /*height: 100%;*/
   height:<?php echo HEIGHT_ACTIVITY; ?>;
-  line-height:<?php echo HEIGHT_ACTIVITY; ?>;
+  line-height:20px;
 }
 #rcornerh {
   display: flex;
