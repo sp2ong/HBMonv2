@@ -13,7 +13,7 @@
     {% for _client, _cdata in _table['MASTERS'][_master]['PEERS'].items() %}
     {% if _cdata[1]['TS'] == True or _cdata[2]['TS'] == True %}
         {% if _cdata[1]['TRX'] == "RX" %}
-        &#32;[<span style="color:#008000;">M</span>: <span style="color:#0065ff;">{{ _cdata[1]['CALL']|safe }}</span>
+        &#32;[<span style="color:#008000;">M</span>:&nbsp;<span style="color:#0065ff;">{{ _cdata[1]['CALL']|safe }}</span>
         &nbsp;<font color=red>>></font>&nbsp;<span style="color:#b5651d;">{{ _cdata[1]['TG']|safe }}</span>]&nbsp;
         {% endif %}
         {% if _cdata[2]['TRX'] == "RX" %}
