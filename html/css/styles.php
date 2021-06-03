@@ -15,7 +15,10 @@ header("Content-type: text/css");
 }
 #rcorner {
   display: flex;
-  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-align:center;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
@@ -23,8 +26,6 @@ header("Content-type: text/css");
   -webkit-border-radius:10px;
   border: 1px solid LightGrey;
   background: #e9e9e9;
-  padding: 0px;
-  text-align:center;
   font: 10pt arial, sans-serif; 
   font-weight:bold;
   margin-top:2px;
@@ -33,8 +34,7 @@ header("Content-type: text/css");
   margin-bottom:0px;
   color:#002d62;
   white-space:normal;
-  /*height: 100%;*/
-  height:<?php echo HEIGHT_ACTIVITY; ?>;
+  height: 100%;
   line-height:20px;
 }
 #rcornerh {
