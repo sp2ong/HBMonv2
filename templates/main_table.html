@@ -8,7 +8,7 @@
     </tr>
     <tr style="border-collapse:collapse;border:none;">
     <td id="lact">
-    <div id="rcorner" >
+    <div id="rcorner"><div>
     {% for _master in _table['MASTERS'] %}
     {% for _client, _cdata in _table['MASTERS'][_master]['PEERS'].items() %}
     {% if _cdata[1]['TS'] == True or _cdata[2]['TS'] == True %}
@@ -54,7 +54,7 @@
       {% endif %}
    {% endif %}
    {% endfor %}
-        </div></td>
+     </div></div></td>
       </tr>
 {% endif %}
 </table>
