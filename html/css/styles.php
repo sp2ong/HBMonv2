@@ -13,36 +13,44 @@ header("Content-type: text/css");
  border-collapse: collapse;
  border:none;
 }
-
 #rcorner {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
   -moz-border-radius:10px;
   -webkit-border-radius:10px;
-  border: 1px solid Lightgrey;
+  border: 1px solid LightGrey;
   background: #e9e9e9;
-  padding: 10px;
+  padding: 0px;
   text-align:center;
   font: 10pt arial, sans-serif; 
   font-weight:bold;
-  margin-top:0px;
+  margin-top:2px;
+  margin-right:0px;
+  margin-left:0px;
+  margin-bottom:0px;
   color:#002d62;
   white-space:normal;
-  height: 100%;
-  line-height:20px;
+  /*height: 100%;*/
+  height:<?php echo HEIGHT_ACTIVITY; ?>;
+  line-height:<?php echo HEIGHT_ACTIVITY; ?>;
 }
-
 #rcornerh {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
   border-radius:8px;
   -moz-border-radius:8px;
   -webkit-border-radius:8px;
-  <?php echo THEME_COLOR."\n"; ?>
-  text-align:center;
-  vertical-align: middle;
   font: 9pt arial, sans-serif; 
   font-weight:bold;
   color:white;
   height:25px;
   line-height:25px;
+  <?php echo THEME_COLOR."\n"; ?>
 }
 
 table, td, th {
