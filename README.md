@@ -21,8 +21,9 @@ php support running on the server.
     cp config-SAMPLE.py config.py
     edit config.py and change what you necessary
 
-    If you use OpenBridge links please put in config.py in OPB_FILTER 
-    NETWROK ID for each defined link in your server.  
+    If you used FreeDMR don't use OPB_FILTER.
+    If you use HBLink code with OpenBridge links please put in config.py in OPB_FILTER 
+    NETWROK ID for each defined link in your server. 
 
     You need to copy the contents of the /opt/HBMonv2/html directory to 
     the web server directory. Suppose your web server is available 
@@ -72,11 +73,6 @@ php support running on the server.
     use >= 0 instead of >2 if you want to record all activities in line:
     
        if int(float(p[9])) > 2:    
-    
-    
-    In directory sysinfo/ you can find info on how to setup display SYSTEM Info data in Monitor.
-    You can use and install ezSM to monitor your server: https://www.ezservermonitor.com
-    instead of using rrdtools and scripts.
     
     
     I recommend that you do not use the BRIDGE_INC = True option to display bridge information 
