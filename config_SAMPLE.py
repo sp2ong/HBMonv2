@@ -10,7 +10,7 @@ FREQUENCY       = 10                             # Frequency to push updates to 
 CLIENT_TIMEOUT  = 0                              # Clients are timed out after this many seconds, 0 to disable
 
 # Generally you don't need to use this but
-# if you don't want to show in lastherad traffic from OBP link put NETWORK ID 
+# if you don't want to show in lastherad received traffic from OBP link put NETWORK ID 
 # for example: "260210,260211,260212"
 OPB_FILTER = ""
 
