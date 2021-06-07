@@ -773,18 +773,18 @@ def process_message(_bmessage):
                    # use >=0 instead of >2 if you want to record all activities
                    if int(float(p[9])) > 2: 
                       log_lh_message = '{},{},{},{},{},{},{},TS{},TG{},{},{},{}'.format(_now, p[9], p[0], p[1], p[3], p[5], alias_call(int(p[5]), subscriber_ids), p[7], p[8],alias_tgid(int(p[8]),talkgroup_ids),p[6], alias_short(int(p[6]), subscriber_ids))
-                      lh_logfile = open(LOG_PATH+"lastheard.log", "a")
+                      lh_logfile = open(LOG_PATH+"lastheard.log", "a", encoding="UTF-8", errors="ignore")
                       lh_logfile.write(log_lh_message + '\n')
                       lh_logfile.close()
                       # Lastheard in Dashboard by SP2ONG
                       my_list=[]
                       n=0
-                      f = open(PATH+"templates/lastheard.html", "w")
+                      f = open(PATH+"templates/lastheard.html", "w", encoding="UTF-8", errors="ignore")
                       f.write("<br><fieldset style=\"border-radius: 8px; background-color:#f0f0f0f0;margin-left:15px;margin-right:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;\">\n")
                       f.write("<legend><b><font color=\"#000\">&nbsp;.: Lastheard :.&nbsp;</font></b></legend>\n")
                       f.write("<table style=\"width:100%; font: 10pt arial, sans-serif;background-color:#f1f1f1;\">\n")
                       f.write("<TR class=\"theme_color\" style=\" height: 32px;font: 10pt arial, sans-serif;\"><TH>Date</TH><TH>Time</TH><TH>Callsign (DMR-Id)</TH><TH>Name</TH><TH>TG#</TH><TH>TG Name</TH><TH>TX (s)</TH><TH>System</TH></TR>\n")
-                      with open(LOG_PATH+"lastheard.log", "r") as textfile:
+                      with open(LOG_PATH+"lastheard.log", "r", encoding="UTF-8", errors="ignore") as textfile:
                           for row in islice(reversed(list(csv.reader(textfile))),200):
                             duration=row[1]
                             dur=str(int(float(duration.strip())))
