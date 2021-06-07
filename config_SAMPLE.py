@@ -9,10 +9,8 @@ HBLINK_PORT     = 4321                           # HBlink's TCP reporting socket
 FREQUENCY       = 10                             # Frequency to push updates to web clients
 CLIENT_TIMEOUT  = 0                              # Clients are timed out after this many seconds, 0 to disable
 
-# If you are using FreeDMR you should not use it OPB_FILTER. It only for HBLink
-# To prevent show local traffic on the which is shown as an "echo" from all OBPs, 
-# we need to add in OPB_FILTER NETWORK ID for all defined OPB links on our own server. 
-# It is for show the real system from which traffic originates from.
+# Generally you don't need to use this but
+# if you don't want to show in lastherad traffic from OBP link put NETWORK ID 
 # for example: "260210,260211,260212"
 OPB_FILTER = ""
 
