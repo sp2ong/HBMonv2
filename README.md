@@ -55,7 +55,10 @@ php support running on the server.
     https://github.com/sp2ong/HBMonv2/tree/main/sysinfo
     
     Please remember the table lastheard displays only station transmissions 
-    that are longer than 2 seconds.
+    that are longer than 2 sec.
+    use >=0 instead of >2 if you want to record all activities in line:
+    
+       if int(float(p[9])) > 2:  
 
     If you want to have more than the last 15 entries in the Lastherad table
     change in the monitor.py file line from:
@@ -64,11 +67,6 @@ php support running on the server.
        if n == 15:
     to for example:
        if n == 25:
-    
-    save QSOs to lastheared.log for which transmission duration is longer than 2 sec, 
-    use >=0 instead of >2 if you want to record all activities in line:
-    
-       if int(float(p[9])) > 2:    
     
     
     I recommend that you do not use the BRIDGE_INC = True option to display bridge information 
