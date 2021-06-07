@@ -100,10 +100,12 @@ WHITE       = 'ffffff'
 WHITE2      = 'f9f9f9f9'
 YELLOW      = 'fffccd'
 
-
 # Define setup setings
 CTABLE['SETUP']['LASTHEARD'] = LASTHEARD_INC
 BTABLE['SETUP']['BRIDGES'] = BRIDGES_INC
+
+# create empty systems list
+sys_list = []
 
 # OPB Filter for lastheard
 def get_opbf():
@@ -757,11 +759,18 @@ def process_message(_bmessage):
         opbfilter = get_opbf()
         if p[0] == 'GROUP VOICE' and p[2] != 'TX' and p[5] not in opbfilter:
             if p[1] == 'END':
+                start_sys=0
+                for x in sys_list:
+                  if x[0]== p[3] and x[1] == p[4]:
+                     sys_list.pop()
+                     start_sys=1
+                     break
+            if p[1] == 'END' and start_sys==1:
                 log_message = '{} {} {}   SYS: {:8.8s} SRC_ID: {:9.9s} TS: {} TGID: {:7.7s} {:17.17s} SUB: {:9.9s}; {:18.18s} Time: {}s '.format(_now[10:19], p[0][6:], p[1], p[3], p[5], p[7],p[8],alias_tgid(int(p[8]),talkgroup_ids), p[6], alias_short(int(p[6]), subscriber_ids), int(float(p[9])))
                 # log only to file if system is NOT OpenBridge event (not logging open bridge system, name depends on your OB definitions) AND transmit time is LONGER as 2sec (make sense for very short transmits)
                 if LASTHEARD_INC:
                    # save QSOs to lastheared.log for which transmission duration is longer than 2 sec, 
-                   # use >= 0 instead of >2 if you want to record all activities
+                   # use >=0 instead of >2 if you want to record all activities
                    if int(float(p[9])) > 2: 
                       log_lh_message = '{},{},{},{},{},{},{},TS{},TG{},{},{},{}'.format(_now, p[9], p[0], p[1], p[3], p[5], alias_call(int(p[5]), subscriber_ids), p[7], p[8],alias_tgid(int(p[8]),talkgroup_ids),p[6], alias_short(int(p[6]), subscriber_ids))
                       lh_logfile = open(LOG_PATH+"lastheard.log", "a")
@@ -794,13 +803,28 @@ def process_message(_bmessage):
                                    n += 1
                                f.write(hline+"\n")
                             # maximum number of lists in lastheard on the main page 
-                            if n == 20:
+                            if n == 15:
                                break
                       f.write("</table></fieldset><br>")
                       f.close()
-                 # End of Lastheard
+                # End of Lastheard
+                # Removing obsolete entries from the sys_list (3 sec)
+                deleteList=[]
+                processNo = 0
+                timeO = datetime.datetime.now().timestamp()
+                for item in sys_list:
+                   td = item[2] - timeO if item[2] > timeO else timeO - item[2]
+                   td = int(round(abs((td)) / 60))
+                   if td > 3:
+                      deleteList.insert(0,processNo)
+                   processNo +=1
+                if len(deleteList) >0:
+                   for item in deleteList:
+                       del sys_list[item]
             elif p[1] == 'START':
                 log_message = '{} {} {} SYS: {:8.8s} SRC_ID: {:9.9s} TS: {} TGID: {:7.7s} {:17.17s} SUB: {:9.9s}; {:18.18s}'.format(_now[10:19], p[0][6:], p[1], p[3], p[5], p[7],p[8], alias_tgid(int(p[8]),talkgroup_ids), p[6], alias_short(int(p[6]), subscriber_ids))
+            elif p[1] == 'END' and start_sys==0:
+               log_message = '{} {} {}   SYS: {:8.8s} SRC_ID: {:9.9s} TS: {} TGID: {:7.7s} {:17.17s} SUB: {:9.9s}; {:18.18s} Time: {}s '.format(_now[10:19], p[0][6:], p[1], p[3], p[5], p[7],p[8],alias_tgid(int(p[8]),talkgroup_ids), p[6], alias_short(int(p[6]), subscriber_ids), int(float(p[9])))
             elif p[1] == 'END WITHOUT MATCHING START':
                 log_message = '{} {} {} on SYSTEM {:8.8s}: SRC_ID: {:9.9s} TS: {} TGID: {:7.7s} {:17.17s} SUB: {:9.9s}; {:18.18s}'.format(_now[10:19], p[0][6:], p[1], p[3], p[5], p[7], p[8],alias_tgid(int(p[8]),talkgroup_ids),p[6], alias_short(int(p[6]), subscriber_ids))
             else:
