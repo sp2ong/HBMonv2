@@ -21,10 +21,6 @@ php support running on the server.
     cp config-SAMPLE.py config.py
     edit config.py and change what you necessary
 
-    If you used FreeDMR don't use OPB_FILTER.
-    If you use HBLink code with OpenBridge links please put in config.py in OPB_FILTER 
-    NETWROK ID for each defined link in your server. 
-
     You need to copy the contents of the /opt/HBMonv2/html directory to 
     the web server directory. Suppose your web server is available 
     as http://dmrserver.org, copy the file to for example /var/www/html
@@ -65,12 +61,12 @@ php support running on the server.
     change in the monitor.py file line from:
     
        # maximum number of lists in lastheard on the main page 
-       if n == 20:
+       if n == 15:
     to for example:
        if n == 25:
     
     save QSOs to lastheared.log for which transmission duration is longer than 2 sec, 
-    use >= 0 instead of >2 if you want to record all activities in line:
+    use >=0 instead of >2 if you want to record all activities in line:
     
        if int(float(p[9])) > 2:    
     
