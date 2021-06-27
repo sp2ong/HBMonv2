@@ -46,7 +46,7 @@ include_once 'include/config.php';
     </tr>
 </table>
 <br>
-<span style="text-align: center;">Hotspot: D - duplex | S - smiplex</span>
+<span style="text-align: center;">Hotspot: D - duplex | S - simplex</span>
 </fieldset></div><br>
 
 <p style="text-align: center;"><span style="text-align: center;">

@@ -1008,6 +1008,11 @@ if __name__ == '__main__':
         logging.info('ID ALIAS MAPPER: local_subscriber_ids added to subscriber_ids dictionary')
         subscriber_ids.update(local_subscriber_ids)
 
+    local_talkgroup_ids = mk_full_id_dict(PATH, LOCAL_TGID_FILE, 'tgid')
+    if local_talkgroup_ids:
+        logging.info('ID ALIAS MAPPER: local_talkgroup_ids added to talkgroup_ids dictionary')
+        talkgroup_ids.update(local_talkgroup_ids)
+
     local_peer_ids = mk_full_id_dict(PATH, LOCAL_PEER_FILE, 'peer')
     if local_peer_ids:
         logging.info('ID ALIAS MAPPER: local_peer_ids added peer_ids dictionary')
