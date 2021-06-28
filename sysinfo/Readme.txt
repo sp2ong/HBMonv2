@@ -9,7 +9,7 @@ The ezSM you can download from: https://www.ezservermonitor.com/
    mv ezservermonitor-web esm
    cd esm/conf/
    
-   Edit file esm.config.json and read domunetation about configuration: https://www.ezservermonitor.com/esm-web/documentation
+   Edit file esm.config.json and read documentation about configuration: https://www.ezservermonitor.com/esm-web/documentation
    Edit file /var/www/html/buttons.html and change link from
    
    <a href="sysinfo.php"><button class="button link">&nbsp;System Info&nbsp;</button></a>
@@ -54,7 +54,7 @@ Install package:
 Change scripts to execute:
 
   chmod +x /opt/HBMonv2/sysinfo/cpu.sh
-  chmod +x /opt/HBMonv2/sysinfo/grap.sh
+  chmod +x /opt/HBMonv2/sysinfo/graph.sh
   chmod +x /opt/HBMonv2/sysinfo/rrd-db.sh
   
 Run script  create database
@@ -83,13 +83,7 @@ where is located your html files of HBMon
 Setup temperature depend of your computer 
 On raspberry pi or PC you can use sensors package to get temperature CPU
 
-If not avilable set:
-
-   tempcpu=false
-
-For VPS set:
-   tempcpu=false
-
+If you don't want to show temperature on the Pi, comment out the line that gets the temp
 
 Optional display network traffic
 ===============================
@@ -123,9 +117,12 @@ Please edit /etc/mrtg.cfg and change diretory to store image change WorkDir with
 path to your webserver html directory where is html files for HBMon:
 
    WorkDir:/var/www/html/hbmon/img/mrtg
+   
+   or 
+   
+   WorkDir:/var/www/html/img/mrtg
 
-
-Put below lines in section your netrwork card 
+Put below lines in section your network card 
 and replace localhost_2 to your name network card as result cfgmaker generate in mrtg.cfg
 
  XSize[localhost_2]: 600 
