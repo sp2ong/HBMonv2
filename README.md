@@ -43,7 +43,7 @@ php support running on the server.
     
     The logo image you can replace with file image in html directory  img/logo.png
     cp utils/lastheard /etc/cron.daily/
-    chmod +x /etc/cron.daily/lastherad
+    chmod +x /etc/cron.daily/lastheard
     cp utils/hbmon.service /lib/systemd/system/
     systemctl enable hbmon
     systemctl start hbmon
@@ -60,7 +60,7 @@ php support running on the server.
     
        if int(float(p[9])) > 2:  
 
-    If you want to have more than the last 15 entries in the Lastherad table
+    If you want to have more than the last 15 entries in the Lastheard table
     change in the monitor.py file line from:
     
        # maximum number of lists in lastheard on the main page 

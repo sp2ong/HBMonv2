@@ -7,26 +7,22 @@ WEB_PATH='/var/www/html/'
 
 # Temperature CPU (not working for VPS)
 
-# Disable = false or enable = true  create graph fortemperature CPU
-
-tempcpu=false
-
 # Setup temperature for CPU ============
 
-#For Raspberry PI:
+
+#For Raspberry PI, comment next 4 lines if you don't want temperature:
 
 FILE=/sys/class/thermal/thermal_zone0/temp
 if [[ -f "$FILE" ]]; then
-tempC=`cat /sys/class/thermal/thermal_zone0/temp |awk '{printf("%.1f",$1)}'`
+tempC=`cat /sys/class/thermal/thermal_zone0/temp |awk '{printf("%.1f",$1/1000)}'`
 fi
 
-# For compuers not like Raspberry PI install package 
+# For computers not like Raspberry PI install package 
 # at install lm-sensors 
 # and run: sensors-detect
-# after this check result run command: sensors to see temperature CPU, if no set above tempcpu=false
+# after this check result run command: sensors to see temperature CPU
 
-# Remove when use for Raspberry PI (see above)
-if $tempcpu == "True" ; then
+if [ -z "$tempC" ] ; then
 tempC=`sensors | grep -i "Core 0" | grep "$1" | sed -re "s/.*:[^+]*?[+]([.0-9]+)[ °]C.*/\1/g"`
 fi
 
@@ -46,7 +42,7 @@ NOW=`date -u +%s`
 
 # Update db =====================================================
 
-if $tempcpu == "True" ; then
+if [ -n "$tempC" ] ; then
 /usr/bin/rrdtool update /opt/HBMonv2/sysinfo/tempC.rrd $NOW:$tempC
 fi
 
@@ -57,7 +53,7 @@ fi
 # Generate images ================================================================
 
 
-if $tempcpu == "True" ; then
+if [ -n "$tempC" ] ; then
 # Temperature CPU
 /usr/bin/rrdtool graph $WEB_PATH/img/tempC.png -t "Temperature CPU 24H - `/bin/date`" \
 --rigid --alt-y-grid --alt-autoscale --units-exponent 0 \
