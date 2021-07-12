@@ -64,9 +64,10 @@
 {% endif %}
 <fieldset style="background-color:#f0f0f0f0;margin-left:15px;margin-right:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <legend><b><font color="#000">&nbsp;.: Connected to Server :.&nbsp;</font></b></legend>
-<table style="table-layout:fixed;width:100%; font: 10pt arial, sans-serif;font-weight:600;margin-top:5px;margin-bottom:5px;" width=100%>
+<table style="table-layout:fixed;width:100%; font: 10pt arial, sans-serif;font-weight:600;margin-top:5px;margin-bottom:5px;border:none !important;border-collapse:collapse;border:none;" width=100%>
 {% if _table['MASTERS']|length >0 %}
-<tr style="background-color:#f9f9f9f9;"><td>
+<tr style="border-collapse:collapse;border:none;"><td style="border-collapse:collapse;border:none;">
+<div style="background-color:#f9f9f9f9;background-image: linear-gradient(to bottom, #e9e9e9 50%, #bcbaba 100%);border-radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;border: 1px solid LightGrey;">
 <br>
 <div style="text-align:left;"><span style="color:#464646;font-weight:600;line-height:1.4;">&nbsp;&nbsp;USERS:</span></div>
 <div style="text-align:left;font:9.5pt arial, sans-serif;font-weight:bold;margin-left:25px; margin-right:25px;line-height:1.4;white-space:normal;">
@@ -74,7 +75,7 @@
     {% if _table['MASTERS'][_master]['PEERS']|length >0 %}
     {% for _client, _cdata in _table['MASTERS'][_master]['PEERS'].items() %}
     <span class="tooltip" style="border-bottom: 1px dotted white;">
-    <a style="border-bottom: 1px dotted white;font: 9.5pt arial,sans-serif;font-weight:bold;color:#0066ff;" target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b>{{_cdata['CALLSIGN']}}</b></a>
+    <a style="border-bottom: 1px dotted white;font: 9.5pt arial,sans-serif;font-weight:bold;color:#0066ff;text-shadow: 1px 1px 1px Lightgrey, 0 0 0.5em LightGrey, 0 0 1em whitesmoke;" target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b>{{_cdata['CALLSIGN']}}</b></a>
     <span class="tooltiptext" style="left:115%;top:-10px;">
         <span style="font: 9pt arial,sans-serif;color:#FFFFFF">
         &nbsp;&nbsp;&nbsp;<b>DMR ID</b>: <b><font color=yellow>{{ _client }}</b></font><br>
@@ -113,5 +114,5 @@
 </div>
 {% endif %}
 <br>
-</td></tr></table>
+ </div></td></tr></table>
 </fieldset>
