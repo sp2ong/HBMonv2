@@ -1,14 +1,14 @@
 {
   "results": [
         {
-      "tgid": 7,
-      "callsign": "TG Local",
-      "id": "7"
+      "tgid": 1,
+      "callsign": "TG Local 1",
+      "id": "1"
     },
     {
-      "tgid": 9,
-      "callsign": "TG XLX",
-      "id": "9"
+      "tgid": 2,
+      "callsign": "TG Local 2",
+      "id": "2"
     }
   ]
 }
