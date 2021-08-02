@@ -85,7 +85,7 @@ On raspberry pi or PC you can use sensors package to get temperature CPU
 
 If you don't want to show temperature on the Pi, comment out the line that gets the temp
 
-Copy file sysinfo-cron to /etc/cron.d/  and restart cronab
+Copy file sysinfo-cron to /etc/cron.d/  and restart crontab
    /etc/init.d/cron restart
    
 
