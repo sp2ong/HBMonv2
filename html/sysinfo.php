@@ -22,6 +22,11 @@ include_once 'include/config.php';
 <p></p>
 </div>
 <?php include_once 'buttons.html'; ?>
+<!--
+<div>
+<a target="_blank" href="esm/"><button class="button link">&nbsp;eZ Server Monitor&nbsp;</button></a>
+</div>
+-->
 <fieldset style="background-color:#e0e0e0;display:inline-block;margin-left:20px;margin-right:20px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <legend><b><font color="#000">&nbsp;.: System Info :.&nbsp;</font></b></legend>
 <center>
