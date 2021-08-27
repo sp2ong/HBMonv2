@@ -115,3 +115,5 @@ You should have received a copy of the GNU General Public License along with thi
 
 ---
 
+<img src="https://github.com/sp2ong/HBMonv2/raw/main/html/img/hbmon.png">
+
