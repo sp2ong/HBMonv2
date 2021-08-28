@@ -26,7 +26,7 @@ header("Content-type: text/css");
   -webkit-border-radius:10px;
   border: 1px solid LightGrey;
   background: #e9e9e9;
-  font: 10pt arial, sans-serif; 
+  font: 12pt arial, sans-serif; 
   font-weight:bold;
   margin-top:2px;
   margin-right:0px;
@@ -35,7 +35,7 @@ header("Content-type: text/css");
   color:#002d62;
   white-space:normal;
   height: 100%;
-  line-height:20px;
+  line-height:21px;
 }
 #rcornerh {
   display: flex;
