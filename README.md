@@ -93,6 +93,20 @@ php support running on the server.
     forward TCP port 9000 and web server port 8080 in firewall
     
     *****************************************************************************************
+---
+
+After update distribution of Linux jinja2 to version 3.x you can find problem with run HBMonitor with error:
+
+     ValueError: The 'monitor' package was not installed in a way that PackageLoader understands.
+
+
+You must uninstall jinja2 and reinstalling with this version Jinja2==2.11.3
+
+    pip3 uninstall jinja2
+
+and
+
+    pip3 install Jinja2==2.11.3
 
 ---
 
