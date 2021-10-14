@@ -5,7 +5,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 
 // Name of the monitored Dashboard
-define("REPORT_NAME","<div style='color:white;text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px #00BFFF;font-size:22px;font-family:arial;font-weight:bold;'>Dashboard of local DMR Network</div>");
+define("REPORT_NAME","<div style='color:white;text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px #00BFFF;font-size:18px;font-family:arial;font-weight:bold;'>Dashboard of local DMR Network</div>");
 
 // Height of Server Activity window: 45px; 1 row, 60px 2 rows, 80px 3 rows
 define("HEIGHT_ACTIVITY","45px");
