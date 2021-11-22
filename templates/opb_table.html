@@ -11,7 +11,7 @@
     <tr style="background-color:#f9f9f9f9;">
         <td style="font-weight:bold; padding-left: 20px; text-align:left;"> {{ _openbridge}} </td>
         <td><div style="font: 9pt arial, sans-serif;margin-top:3px;margin-bottom:3px;">Net ID: <span style="font: 9pt arial, sans-serif;font-weight:bold;">{{ _table['OPENBRIDGES'][_openbridge]['NETWORK_ID'] }}</td>
-        <td style="background-color:#f9f9f9f9; font: 9pt arial, sans-serif; font-weight: 600; color:#464646;">{% for entry in _table['OPENBRIDGES'][_openbridge]['STREAMS']  %}[<span style="{{ 'color:#008000;' if _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][0] == 'RX' else 'color:red;' }}">{{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][0] }}</span>: <font color=#0065ff> {{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][1] }}</font> >> <font color=#b5651d>TG&nbsp;{{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][2] }}</font>]&nbsp;{% endfor %}</td>
+        <td style="background-color:#f9f9f9f9; font: 9pt arial, sans-serif; font-weight: 600; color:#464646;">{% for entry in _table['OPENBRIDGES'][_openbridge]['STREAMS']  %}[<span style="{{ 'color:#008000;' if _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][0] == 'RX' else 'color:red;' }}">{{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][0] }}</span>: <font color=#0065ff> {{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][1] }}</font> >> <font color=#b5651d>TG&nbsp;{{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][2]|safe }}</font>]&nbsp;{% endfor %}</td>
    </tr>
     {% endfor %}
 </table>
