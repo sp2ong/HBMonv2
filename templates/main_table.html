@@ -50,7 +50,7 @@
          {% set rx.value=1 %}
        {% endfor %}
        {% if rx.value == 1 %}
-         {% for entry in _table['OPENBRIDGES'][_openbridge]['STREAMS']  if _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][0] == 'RX' %}&#32;[<span style="color:#008000;">O</span>:&nbsp;<font color=#0065ff>{{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][1]}}</font>&nbsp;<font color=red>>></font>&nbsp;<font color=#b5651d>TG&nbsp;{{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][2]}}</font>]&nbsp;{% endfor %}
+         {% for entry in _table['OPENBRIDGES'][_openbridge]['STREAMS']  if _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][0] == 'RX' %}&#32;[<span style="color:#008000;">O</span>:&nbsp;<font color=#0065ff>{{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][1]}}</font>&nbsp;<font color=red>>></font>&nbsp;<font color=#b5651d>TG&nbsp;{{ _table['OPENBRIDGES'][_openbridge]['STREAMS'][entry][2]|safe}}</font>]&nbsp;{% endfor %}
       {% endif %}
    {% endif %}
    {% endfor %}
