@@ -46,7 +46,7 @@ include_once 'include/config.php';
 </fieldset>
 <br>
 <p style="text-align: center;"><span style="text-align: center;">
-Copyright (c) 2016-2021<br>The Regents of the <a href=http://k0usy.mystrikingly.com/>K0USY Group</a>. All rights reserved.<br><a href=https://github.com/sp2ong/HBMonv2>Version SP2ONG 2019-2022</a><br><br></span>
+Copyright (c) 2016-2022<br>The Regents of the <a href=http://k0usy.mystrikingly.com/>K0USY Group</a>. All rights reserved.<br><a href=https://github.com/sp2ong/HBMonv2>Version SP2ONG 2019-2022</a><br><br></span>
     <!-- THIS COPYRIGHT NOTICE MUST BE DISPLAYED AS A CONDITION OF THE LICENCE GRANT FOR THIS SOFTWARE. ALL DERIVATEIVES WORKS MUST CARRY THIS NOTICE -->
     <!-- This is version of HBMonitor SP2ONG 2019-2022 -->
 </p>
