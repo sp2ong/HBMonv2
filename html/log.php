@@ -11,7 +11,7 @@ include_once 'include/config.php';
 <title>DMR Server monitor - STATUS</title>
 <script type="text/javascript" src="scripts/hbmon.js"></script>
 <link rel="stylesheet" type="text/css" href="css/styles.php" />
-<meta name="description" content="Copyright (c) 2016-2021.The Regents of the K0USY Group. All rights reserved. Version SP2ONG 2019-2021 (v20210515)" />
+<meta name="description" content="Copyright (c) 2016-2022.The Regents of the K0USY Group. All rights reserved. Version SP2ONG 2019-2022" />
 </head>
 <body style="background-color: #d0d0d0;font: 10pt arial, sans-serif;">
 <center><div style="width:1250px; text-align: center; margin-top:5px;">
@@ -108,9 +108,9 @@ fclose ($handle);
 ?>
 <div style="width: 1100px;">
 <p style="text-align: center;"><span style="text-align: center;">
-Copyright (c) 2016-2021<br>The Regents of the <a target="_blank" href=http://k0usy.mystrikingly.com/>K0USY Group</a>. All rights reserved.<br><a title="HBMonv2 SP2ONG" target="_blank" href=https://github.com/sp2ong/HBMonv2>Version SP2ONG 2019-2021</a><br></span>
+Copyright (c) 2016-2022<br>The Regents of the <a target="_blank" href=http://k0usy.mystrikingly.com/>K0USY Group</a>. All rights reserved.<br><a title="HBMonv2 SP2ONG" target="_blank" href=https://github.com/sp2ong/HBMonv2>Version SP2ONG 2019-2022</a><br></span>
     <!-- THIS COPYRIGHT NOTICE MUST BE DISPLAYED AS A CONDITION OF THE LICENCE GRANT FOR THIS SOFTWARE. ALL DERIVATEIVES WORKS MUST CARRY THIS NOTICE -->
-    <!-- This is version of HBMonitor v2 SP2ONG 2019-2021 (v20210515)-->
+    <!-- This is version of HBMonitor v2 SP2ONG 2019-2022-->
 <font size="-2">&copy; developed by DL1BZ as logging-extension of HBmonitor (2018,2019)</font><br>
 </p>
 </div>
