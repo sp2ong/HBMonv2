@@ -18,7 +18,7 @@ php support running on the server.
     cd HBMonv2
     chmod +x install.sh
     ./install.sh
-    cp config-SAMPLE.py config.py
+    cp config_SAMPLE.py config.py
     edit config.py and change what you necessary
 
     You need to copy the contents of the /opt/HBMonv2/html directory to 
