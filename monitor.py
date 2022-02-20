@@ -754,8 +754,8 @@ def process_message(_bmessage):
                       f = open(PATH+"templates/lastheard.html", "w")
                       f.write("<br><fieldset style=\"border-radius: 8px; background-color:#f0f0f0f0;margin-left:15px;margin-right:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;\">\n")
                       f.write("<legend><b><font color=\"#000\">&nbsp;.: Lastheard :.&nbsp;</font></b></legend>\n")
-                      f.write("<table style=\"width:100%; font: 10pt arial, sans-serif;\background-color:#f1f1f1;">\n")
-                      f.write("<TR style=\" height: 32px;font: 10pt arial, sans-serif;"+THEME_COLOR+"\"><TH>Date</TH><TH>Time</TH><TH>Callsign (DMR-Id)</TH><TH>Name</TH><TH>TG#</TH><TH>TG Name</TH><TH>TX (s)</TH><TH>System</TH></TR>\n")
+                      f.write("<table style=\"width:100%; font: 10pt arial, sans-serif;background-color:#f1f1f1;\">\n")
+                      f.write("<TR style=\"height: 32px;font: 10pt arial, sans-serif;"+THEME_COLOR+"\"><TH>Date</TH><TH>Time</TH><TH>Callsign (DMR-Id)</TH><TH>Name</TH><TH>TG#</TH><TH>TG Name</TH><TH>TX (s)</TH><TH>System</TH></TR>\n")
                       with open(LOG_PATH+"lastheard.log", "r") as textfile:
                           for row in islice(reversed(list(csv.reader(textfile))),200):
                             duration=row[1]
