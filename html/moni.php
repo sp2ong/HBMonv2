@@ -27,10 +27,10 @@ include_once 'include/config.php';
 </div>
 <p></p>
 <!-- LOG monitor -->
-<div style="width: 1150px; margin-left:0px;">
-<fieldset style="background-color:#e0e0e0e0;width: 1100px; margin-left:0px;margin-right:0px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-<legend><b><font color="#000">&nbsp;.: Call log window :.&nbsp;</font></b></legend>
-<pre id="log" style="height: 40em; text-align: left; overflow-y: scroll; font-size:13px; background-color: #000000; color:#b1eee9;"></pre>
+<div style="width: 1100px; margin-left:0px;">
+<fieldset style="background-color:#e0e0e0e0;width: 1045px; margin-left:0px;margin-right:0px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+<legend><b><font color="#000">&nbsp;.: Call log :.&nbsp;</font></b></legend>
+<pre id="log" style="height: 40em; text-align: left; overflow-y: scroll; font-size:12px; background-color: #000000; color:#b1eee9;"></pre>
 </fieldset></div>
 <p style="text-align: center;"><span style="text-align: center;">
 Copyright &copy; 2016-2022<br>The Regents of the <a href=http://k0usy.mystrikingly.com/>K0USY Group</a>. All rights reserved.<br><a href=https://github.com/sp2ong/HBMonv2>Version SP2ONG 2019-2022</a><br><br></span>
