@@ -1,13 +1,13 @@
 **HBmonitor is a "web dashboard" for HBlink by N0MJS.**
 
-***This is version of HBMonitor V2 by SP2ONG 2019-2021***
+***This is version of HBMonitor V2 by SP2ONG 2019-2022***
 
 The main difference between HBMonitor v1 and v2 is the layout, i.e. the main page shows condensed 
 information and on the subpages, you can see the individual content that was shown on v1
 
 I recommend not running HBmonitor on the same computer as HBlink3
 
-HBmonitor tested on Debian v9 and v10
+HBmonitor tested on Debian v9,v10,v11 
 
 This version of HBMonv2 requires a web server like apache2, lighttpd and 
 php support running on the server. 
@@ -18,7 +18,7 @@ php support running on the server.
     cd HBMonv2
     chmod +x install.sh
     ./install.sh
-    cp config-SAMPLE.py config.py
+    cp config_SAMPLE.py config.py
     edit config.py and change what you necessary
 
     You need to copy the contents of the /opt/HBMonv2/html directory to 
